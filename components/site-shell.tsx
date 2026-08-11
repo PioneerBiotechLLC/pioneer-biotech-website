@@ -35,7 +35,7 @@ export function Header() {
   return (
     <>
       <div className={cn('fixed inset-x-0 top-0 z-50 transition-all duration-500 ease-out', scrolled ? 'px-3 pt-2 sm:px-4 sm:pt-3' : 'px-0 pt-0')}>
-        <header className={cn('mx-auto bg-black transition-all duration-500 ease-out', scrolled ? 'max-w-6xl rounded-full border border-white/10 shadow-xl shadow-black/60' : 'max-w-full rounded-none border-b border-white/10 shadow-none')}>
+        <header className={cn('mx-auto bg-black transition-all duration-500 ease-out', scrolled ? 'max-w-6xl rounded-full nav-glow' : 'max-w-full rounded-none border-b border-white/10 shadow-none')}>
           <nav className="flex h-16 items-center justify-between px-5 md:px-8">
             <Link href="/" className="flex items-center" onClick={() => setOpen(false)}>
               <img src="/logos/logo.jpeg" alt="Pioneer Biotech" className="h-12 w-auto max-w-[180px] object-contain brightness-125" />
