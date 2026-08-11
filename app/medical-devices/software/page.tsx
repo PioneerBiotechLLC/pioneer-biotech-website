@@ -1,6 +1,4 @@
 import type { Metadata } from 'next'
-import { SiteNav } from '@/components/medical-devices/sections/site-nav'
-import { SiteFooter } from '@/components/medical-devices/sections/site-footer'
 import { Reveal } from '@/components/medical-devices/reveal'
 
 export const metadata: Metadata = {
@@ -13,7 +11,6 @@ export const metadata: Metadata = {
 export default function SoftwarePage() {
   return (
     <>
-      <SiteNav />
       <main>
         <section className="relative overflow-hidden bg-surface-dark pb-14 pt-32 md:pb-20 md:pt-44">
           <div
@@ -44,7 +41,6 @@ export default function SoftwarePage() {
           </div>
         </section>
       </main>
-      <SiteFooter />
     </>
   )
 }

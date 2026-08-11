@@ -1,7 +1,5 @@
 import type { Metadata } from 'next'
 import { ArrowRight, Crosshair, Clock, HeartPulse, FileText, Quote } from 'lucide-react'
-import { SiteNav } from '@/components/medical-devices/sections/site-nav'
-import { SiteFooter } from '@/components/medical-devices/sections/site-footer'
 import { Reveal } from '@/components/medical-devices/reveal'
 import { Button } from '@/components/ui/button'
 
@@ -357,7 +355,6 @@ function CtaSection() {
 export default function ClinicalEvidencePage() {
   return (
     <>
-      <SiteNav />
       <main>
         <PageHero />
         <OutcomesBar />
@@ -367,7 +364,6 @@ export default function ClinicalEvidencePage() {
         <Testimonials />
         <CtaSection />
       </main>
-      <SiteFooter />
     </>
   )
 }

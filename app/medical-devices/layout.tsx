@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Playfair_Display, Geist_Mono } from 'next/font/google'
 import { SmoothScroll } from '@/components/medical-devices/smooth-scroll'
+import { Header, Footer } from '@/components/site-shell'
 
 const playfair = Playfair_Display({
   variable: '--font-playfair',
@@ -26,8 +27,12 @@ export const viewport: Viewport = {
 
 export default function MedicalDevicesLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <div className={`${playfair.variable} ${geistMono.variable} a1-scope`}>
-      <SmoothScroll>{children}</SmoothScroll>
-    </div>
+    <>
+      <Header />
+      <div className={`${playfair.variable} ${geistMono.variable} a1-scope`}>
+        <SmoothScroll>{children}</SmoothScroll>
+      </div>
+      <Footer />
+    </>
   )
 }

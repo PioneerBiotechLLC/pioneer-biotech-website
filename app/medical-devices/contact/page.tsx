@@ -1,6 +1,4 @@
 import type { Metadata } from 'next'
-import { SiteNav } from '@/components/medical-devices/sections/site-nav'
-import { SiteFooter } from '@/components/medical-devices/sections/site-footer'
 import { ContactForm } from '@/components/medical-devices/sections/contact-form'
 import { Reveal } from '@/components/medical-devices/reveal'
 
@@ -46,14 +44,12 @@ function PageHero() {
 export default function ContactPage() {
   return (
     <>
-      <SiteNav />
       <main>
         <PageHero />
         <section className="bg-surface-alt py-16 md:py-24">
           <ContactForm />
         </section>
       </main>
-      <SiteFooter />
     </>
   )
 }

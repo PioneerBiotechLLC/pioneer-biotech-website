@@ -12,8 +12,6 @@ import {
   PersonStanding,
 } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
-import { SiteNav } from '@/components/medical-devices/sections/site-nav'
-import { SiteFooter } from '@/components/medical-devices/sections/site-footer'
 import { Reveal } from '@/components/medical-devices/reveal'
 import { Button } from '@/components/ui/button'
 
@@ -119,7 +117,6 @@ const PRODUCTS: Product[] = [
 export default function ProductsPage() {
   return (
     <>
-      <SiteNav />
       <main>
         {/* Intro */}
         <section className="bg-surface-dark pb-16 pt-32 md:pb-24 md:pt-44">
@@ -287,7 +284,6 @@ export default function ProductsPage() {
           </div>
         </section>
       </main>
-      <SiteFooter />
     </>
   )
 }

@@ -72,7 +72,7 @@ export function PatientCare() {
 
           <Reveal delay={260}>
             <Button
-              render={<a href="#patients" />}
+              render={<a href="/medical-devices/contact" />}
               nativeButton={false}
               variant="outline"
               className="mt-8 h-auto gap-2 rounded-sm border-secondary bg-transparent px-6 py-3 text-sm font-medium text-secondary hover:bg-secondary hover:text-white"

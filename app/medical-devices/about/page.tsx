@@ -1,7 +1,5 @@
 import type { Metadata } from 'next'
 import { ArrowRight } from 'lucide-react'
-import { SiteNav } from '@/components/medical-devices/sections/site-nav'
-import { SiteFooter } from '@/components/medical-devices/sections/site-footer'
 import { Reveal } from '@/components/medical-devices/reveal'
 import { Button } from '@/components/ui/button'
 import { asset, cn } from '@/lib/utils'
@@ -479,7 +477,7 @@ function CtaSection() {
               Speak to a Specialist
             </Button>
             <Button
-              render={<a href="/medical-devices#spec-sheet" />}
+              render={<a href="/medical-devices/products#a1-frame" />}
               nativeButton={false}
               variant="outline"
               className="h-auto w-full rounded-sm border-white/50 bg-transparent px-6 py-3 text-sm font-medium text-white hover:bg-white/10 hover:text-white sm:w-auto"
@@ -509,7 +507,6 @@ function CtaSection() {
 export default function AboutPage() {
   return (
     <>
-      <SiteNav />
       <main>
         <PageHero />
         <StatsBar />
@@ -519,7 +516,6 @@ export default function AboutPage() {
         <InventorSection />
         <CtaSection />
       </main>
-      <SiteFooter />
     </>
   )
 }
