@@ -1,3 +1,4 @@
+import { AccordionGroup, AccordionSection } from '@/components/accordion-section'
 import { ClosingCta, Container, Eyebrow, PageHero, SiteShell, TrustStrip } from '@/components/site-shell'
 
 const downstream = [
@@ -50,10 +51,12 @@ const apiList = [
 const excipients = ['Sucrose (USP/BP/EP)', 'Sorbitol (All Grade)', 'Glycerol (USP/BP/EP)', 'Propylene Glycol', '2-Propanol', 'Talc Powder', 'Ethanol', 'Magnesium Stearate', 'Sodium Saccharin', 'Hydrochloric Acid 25%', 'Tween (All Grades)', 'Lactose (All Grades)', 'MCC (All Grades)', 'Polyethylene Glycol', 'Phosphoric Acid 75%', 'Zinc Oxide', 'Pregelatinised Starch', 'Colloidal SiO2', 'Mg Stearate', 'Glycerol Distearate']
 
 const partners = [
-  ['BEA Technologies', 'Italy — filtration', '/logos/pharma-partners/bea.png'],
-  ['Tisla', 'Culture media', '/logos/pharma-partners/tisla.png'],
-  ['Biotactical', 'Netherlands', '/logos/pharma-partners/biotactical.png'],
-  ['Apitoria', 'APIs and Excipients', '/logos/pharma-partners/apitoria.png'],
+  ['BEA Technologies', 'Italy — filtration', '/logos/pharma-partners/bea.png', 'https://www.bea-italy.com/'],
+  ['Tisla', 'Culture media', '/logos/pharma-partners/tisla.png', 'https://tislagroup.com/'],
+  ['Biotactical', 'Netherlands', '/logos/pharma-partners/biotactical.png', 'http://www.biotactical.nl/'],
+  ['Apitoria', 'APIs and Excipients', '/logos/pharma-partners/apitoria.png', 'https://www.apitoria.com/'],
+  ['Indenta', '', '/logos/pharma-partners/indenta.png', 'https://www.indenta.com/'],
+  ['Halogens', '', '/logos/pharma-partners/halogens.png', 'https://www.halogens.co.in/'],
 ]
 
 function SpecCard({ name, bullets, image, fit = 'cover' }: { name: string; bullets: string[]; image?: string; fit?: 'cover' | 'contain' | 'wide' }) {
@@ -64,65 +67,62 @@ function SpecCard({ name, bullets, image, fit = 'cover' }: { name: string; bulle
 }
 
 export default function PharmaPage() {
-  return <SiteShell><main><PageHero eyebrow="PHARMA & BIOPHARMA" title="Everything Your Pharma Line Needs." description="From active pharmaceutical ingredients to turnkey cleanroom infrastructure, Pioneer Biotech supplies the raw materials, equipment, and engineered facilities pharmaceutical manufacturers depend on." image="/images/pharma-hero.jpeg" />
+  return <SiteShell><main><PageHero className="hero-type-match" eyebrow="PHARMACEUTICAL SOLUTIONS" title={<>Everything Your<br /> <span className="accent">Pharma Line Needs.</span></>} description="From active pharmaceutical ingredients to turnkey cleanroom infrastructure, Pioneer Biotech supplies the raw materials, equipment, and engineered facilities pharmaceutical manufacturers depend on." image="/images/pharma-hero.jpeg" />
 
-    <section className="section product-category"><Container>
-      <div className="category-head"><Eyebrow>01 — UPSTREAM & DOWNSTREAM</Eyebrow><h2>Process systems for every stage of production.</h2></div>
-      <div className="spec-group">
-        <p className="spec-group-label">Upstream Solutions</p>
-        <div className="spec-grid one"><SpecCard name="Bioreactor Systems" bullets={['Available in 5L, 100L, 1000L']} image="/images/pharma/bioreactor-systems.jpeg" fit="wide" /></div>
-      </div>
-      <div className="spec-group">
-        <p className="spec-group-label">Downstream Solutions</p>
-        <div className="spec-grid two bordered">{downstream.map(([name, bullets, image]) => <SpecCard key={name as string} name={name as string} bullets={bullets as string[]} image={image as string} fit="contain" />)}</div>
-      </div>
-    </Container></section>
-
-    <section className="section section-tan product-category"><Container>
-      <div className="category-head"><Eyebrow>02 — TURNKEY PROJECTS</Eyebrow><h2>Facility infrastructure, delivered end to end.</h2></div>
-      <div className="spec-grid three" style={{ marginTop: '2.5rem' }}>{turnkey.map(([name, bullets, image]) => <SpecCard key={name as string} name={name as string} bullets={bullets as string[]} image={image as string} />)}</div>
-    </Container></section>
-
-    <section className="section product-category"><Container>
-      <div className="category-head"><Eyebrow>03 — LAB EQUIPMENT</Eyebrow><h2>Instruments built for GMP-grade reliability.</h2></div>
-      <div className="spec-grid three bordered" style={{ marginTop: '2.5rem' }}>{labEquipment.map(([name, bullets, image]) => <SpecCard key={name as string} name={name as string} bullets={bullets as string[]} image={image as string} fit="contain" />)}</div>
-      <div className="spec-group">
-        <p className="spec-group-label">Tisla Products</p>
-        <div className="tisla-grid">{tislaProducts.map(([name, image]) => <article className="tisla-card" key={name}><div className="tisla-card-image"><img src={image} alt={name} loading="lazy" /></div><span>{name}</span></article>)}</div>
-      </div>
-    </Container></section>
-
-    <section className="section section-tan product-category"><Container>
-      <div className="category-head"><Eyebrow>04 — BEA · ITALY</Eyebrow><h2>Membrane filtration solutions.</h2><span className="category-attribution">Partner: BEA Technologies, Italy</span></div>
-      <div className="spec-group">
-        <p className="spec-group-label">Membrane Filters</p>
-        <div className="spec-grid two">
-          <div className="spec-card"><div className="spec-card-image contain"><img src="/images/pharma/bea-hydrophilic-filters.png" alt="Hydrophilic Filters" loading="lazy" /></div><div className="spec-card-body"><h4>Hydrophilic Filters</h4><div className="filter-tag-list">{['Propylene', 'PES', 'PVDF', 'Glass Fiber', 'Nylon'].map((t) => <span className="filter-tag" key={t}>{t}</span>)}</div></div></div>
-          <div className="spec-card"><div className="spec-card-image contain"><img src="/images/pharma/bea-hydrophobic-filters.png" alt="Hydrophobic Filters" loading="lazy" /></div><div className="spec-card-body"><h4>Hydrophobic Filters</h4><div className="filter-tag-list">{['PTFE', 'Expanded PTFE'].map((t) => <span className="filter-tag" key={t}>{t}</span>)}</div></div></div>
+    <AccordionGroup defaultValue={[]}>
+      <AccordionSection value="upstream-downstream" header={<><Eyebrow>01 — UPSTREAM & DOWNSTREAM</Eyebrow><h2>Process systems for every stage of production.</h2></>}>
+        <div className="spec-group">
+          <p className="spec-group-label">Upstream Solutions</p>
+          <div className="spec-grid one"><SpecCard name="Bioreactor Systems" bullets={['Available in 5L, 100L, 1000L']} image="/images/pharma/bioreactor-systems.jpeg" fit="wide" /></div>
         </div>
-      </div>
-      <div className="spec-group">
-        <p className="spec-group-label">Filter Validation</p>
-        <div className="spec-grid two">
-          <div className="spec-card"><div className="spec-card-image contain"><img src="/images/pharma/bea-validation.png" alt="Filter validation process" loading="lazy" /></div><div className="spec-card-body"><h4>Validation Services</h4><ul className="spec-list">{filterValidation.map((v) => <li key={v}>{v}</li>)}</ul></div></div>
-          <article className="tisla-card"><div className="tisla-card-image dual"><img src="/images/pharma/bea-integrity-test-benchtop.png" alt="Integrity Test Machine — benchtop unit" loading="lazy" /><img src="/images/pharma/bea-integrity-test-handheld.png" alt="Integrity Test Machine — handheld reader" loading="lazy" /></div><span>Integrity Test Machine — benchtop unit + handheld reader</span></article>
+        <div className="spec-group">
+          <p className="spec-group-label">Downstream Solutions</p>
+          <div className="spec-grid two bordered">{downstream.map(([name, bullets, image]) => <SpecCard key={name as string} name={name as string} bullets={bullets as string[]} image={image as string} fit="contain" />)}</div>
         </div>
-      </div>
-    </Container></section>
+      </AccordionSection>
 
-    <section className="section product-category"><Container>
-      <div className="category-head"><Eyebrow>05 — RAW MATERIAL</Eyebrow><h2>APIs and excipients, sourced and certified.</h2></div>
-      <div className="spec-group">
-        <p className="spec-group-label">Active Pharmaceutical Ingredients (API)</p>
-        <div className="api-table-wrap"><table className="api-table"><thead><tr><th>Ingredient</th><th>Category</th></tr></thead><tbody>{apiList.map(([name, cat]) => <tr key={name}><td>{name}</td><td>{cat}</td></tr>)}</tbody></table></div>
-      </div>
-      <div className="spec-group">
-        <p className="spec-group-label">Excipients</p>
-        <div className="excipient-grid">{excipients.map((e, i) => <span className="excipient-chip" key={`${e}-${i}`}>{e}</span>)}</div>
-        <p className="excipient-note">And a great deal more. Our excipient portfolio extends well beyond this selection. Tell us what your formulation calls for and we will source it.</p>
-      </div>
-    </Container></section>
+      <AccordionSection value="turnkey-projects" tan header={<><Eyebrow>02 — TURNKEY PROJECTS</Eyebrow><h2>Facility infrastructure, delivered end to end.</h2></>}>
+        <div className="spec-grid three">{turnkey.map(([name, bullets, image]) => <SpecCard key={name as string} name={name as string} bullets={bullets as string[]} image={image as string} />)}</div>
+      </AccordionSection>
 
-    <section className="section section-tan"><Container><Eyebrow>TRUSTED PARTNERS</Eyebrow><h2>Specialists behind every supply chain.</h2><div className="card-grid three">{partners.map(([name, detail, logo]) => <article className="partner-card" key={name}><div className="partner-logo"><img src={logo} alt={name} loading="lazy" /></div><h3>{name}</h3><p>{detail}</p></article>)}</div></Container></section>
-    <TrustStrip /><ClosingCta title="Source With Confidence" description="[1 sentence inviting inquiries/quote requests for pharma materials and equipment]" buttons={['Request a Quote', 'Contact a Specialist']} /></main></SiteShell>
+      <AccordionSection value="lab-equipment" header={<><Eyebrow>03 — LAB EQUIPMENT</Eyebrow><h2>Instruments built for GMP-grade reliability.</h2></>}>
+        <div className="spec-grid three bordered">{labEquipment.map(([name, bullets, image]) => <SpecCard key={name as string} name={name as string} bullets={bullets as string[]} image={image as string} fit="contain" />)}</div>
+        <div className="spec-group">
+          <p className="spec-group-label">Tisla Products</p>
+          <div className="tisla-grid">{tislaProducts.map(([name, image]) => <article className="tisla-card" key={name}><div className="tisla-card-image"><img src={image} alt={name} loading="lazy" /></div><span>{name}</span></article>)}</div>
+        </div>
+      </AccordionSection>
+
+      <AccordionSection value="membrane-filtration" tan header={<><Eyebrow>04 — BEA · ITALY</Eyebrow><h2>Membrane filtration solutions.</h2></>} attribution={<span className="category-attribution">Partner: BEA Technologies, Italy</span>}>
+        <div className="spec-group">
+          <p className="spec-group-label">Membrane Filters</p>
+          <div className="spec-grid two">
+            <div className="spec-card"><div className="spec-card-image contain"><img src="/images/pharma/bea-hydrophilic-filters.png" alt="Hydrophilic Filters" loading="lazy" /></div><div className="spec-card-body"><h4>Hydrophilic Filters</h4><div className="filter-tag-list">{['Propylene', 'PES', 'PVDF', 'Glass Fiber', 'Nylon'].map((t) => <span className="filter-tag" key={t}>{t}</span>)}</div></div></div>
+            <div className="spec-card"><div className="spec-card-image contain"><img src="/images/pharma/bea-hydrophobic-filters.png" alt="Hydrophobic Filters" loading="lazy" /></div><div className="spec-card-body"><h4>Hydrophobic Filters</h4><div className="filter-tag-list">{['PTFE', 'Expanded PTFE'].map((t) => <span className="filter-tag" key={t}>{t}</span>)}</div></div></div>
+          </div>
+        </div>
+        <div className="spec-group">
+          <p className="spec-group-label">Filter Validation</p>
+          <div className="spec-grid two">
+            <div className="spec-card"><div className="spec-card-image contain"><img src="/images/pharma/bea-validation.png" alt="Filter validation process" loading="lazy" /></div><div className="spec-card-body"><h4>Validation Services</h4><ul className="spec-list">{filterValidation.map((v) => <li key={v}>{v}</li>)}</ul></div></div>
+            <article className="tisla-card"><div className="tisla-card-image dual"><img src="/images/pharma/bea-integrity-test-benchtop.png" alt="Integrity Test Machine — benchtop unit" loading="lazy" /><img src="/images/pharma/bea-integrity-test-handheld.png" alt="Integrity Test Machine — handheld reader" loading="lazy" /></div><span>Integrity Test Machine — benchtop unit + handheld reader</span></article>
+          </div>
+        </div>
+      </AccordionSection>
+
+      <AccordionSection value="apis-excipients" header={<><Eyebrow>05 — RAW MATERIAL</Eyebrow><h2>APIs and excipients, sourced and certified.</h2></>}>
+        <div className="spec-group">
+          <p className="spec-group-label">Active Pharmaceutical Ingredients (API)</p>
+          <div className="api-table-wrap"><table className="api-table"><thead><tr><th>Ingredient</th><th>Category</th></tr></thead><tbody>{apiList.map(([name, cat]) => <tr key={name}><td>{name}</td><td>{cat}</td></tr>)}</tbody></table></div>
+        </div>
+        <div className="spec-group">
+          <p className="spec-group-label">Excipients</p>
+          <div className="excipient-grid">{excipients.map((e, i) => <span className="excipient-chip" key={`${e}-${i}`}>{e}</span>)}</div>
+          <p className="excipient-note">And a great deal more. Our excipient portfolio extends well beyond this selection. Tell us what your formulation calls for and we will source it.</p>
+        </div>
+      </AccordionSection>
+    </AccordionGroup>
+
+    <section id="trusted-partners" className="section section-tan"><Container><Eyebrow>TRUSTED PARTNERS</Eyebrow><h2>Specialists behind every supply chain.</h2><div className="card-grid three">{partners.map(([name, detail, logo, url]) => <a className="partner-card" href={url} target="_blank" rel="noreferrer" key={name}><div className="partner-logo"><img src={logo} alt={name} loading="lazy" /></div><h3>{name}</h3>{detail && <p>{detail}</p>}</a>)}</div></Container></section>
+    <TrustStrip /><ClosingCta title="Source With Confidence" description="Tell us what your line needs — raw materials, lab equipment, or turnkey facility infrastructure — and a specialist will get back to you with a quote." buttons={['Contact Us', 'Contact a Specialist']} links={['/contact']} /></main></SiteShell>
 }

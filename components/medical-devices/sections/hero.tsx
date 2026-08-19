@@ -176,7 +176,10 @@ export function Hero() {
           </h1>
 
           <Reveal delay={160}>
-            <p className="mx-auto mt-8 max-w-2xl text-pretty text-base leading-relaxed text-white/85 drop-shadow-[0_1px_8px_rgba(0,0,0,0.9)] md:text-lg">
+            <p
+              className="mt-8 text-pretty text-base leading-relaxed text-white/85 drop-shadow-[0_1px_8px_rgba(0,0,0,0.9)] md:text-lg"
+              style={{ textAlign: 'center', marginLeft: 'auto', marginRight: 'auto', maxWidth: '42rem' }}
+            >
               The A1 Stereotactic Frame reaches both brain targets in a single session. No visible scars, only 5 components.
             </p>
           </Reveal>

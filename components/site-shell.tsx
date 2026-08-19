@@ -2,16 +2,46 @@
 
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
-import { Menu, ShieldCheck, X } from 'lucide-react'
+import { Award, BadgeCheck, BookOpenCheck, ChevronDown, FlaskConical, Globe, Menu, ShieldCheck, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 
 export const MEDICAL_DEVICES_URL = '/medical-devices'
 
 const NAV_LINKS = [
-  { label: 'Pharma & Biopharma', href: '/pharma-biopharma' },
-  { label: 'Medical Devices', href: MEDICAL_DEVICES_URL },
-  { label: 'Innovation Center', href: '/innovation-center' },
+  { label: 'About', href: '/about' },
+  {
+    label: 'Pharmaceutical Solutions',
+    href: '/pharma-biopharma',
+    children: [
+      { label: 'Overview', href: '/pharma-biopharma' },
+      { label: 'Upstream & Downstream', href: '/pharma-biopharma#upstream-downstream' },
+      { label: 'Turnkey Projects', href: '/pharma-biopharma#turnkey-projects' },
+      { label: 'Lab Equipment', href: '/pharma-biopharma#lab-equipment' },
+      { label: 'Membrane Filtration', href: '/pharma-biopharma#membrane-filtration' },
+      { label: 'APIs & Excipients', href: '/pharma-biopharma#apis-excipients' },
+      { label: 'Trusted Partners', href: '/pharma-biopharma#trusted-partners' },
+    ],
+  },
+  {
+    label: 'Medical Devices',
+    href: MEDICAL_DEVICES_URL,
+    children: [
+      { label: 'Overview', href: MEDICAL_DEVICES_URL },
+      { label: 'Products', href: '/medical-devices/products' },
+      { label: 'Software', href: '/medical-devices/software' },
+      { label: 'Clinical Evidence', href: '/medical-devices/clinical-evidence' },
+      { label: 'About', href: '/medical-devices/about' },
+      { label: 'Contact', href: '/medical-devices/contact' },
+    ],
+  },
+  {
+    label: 'Innovation Hub',
+    href: '/innovation-center',
+    children: [
+      { label: 'Overview', href: '/innovation-center' },
+    ],
+  },
 ]
 
 export function Header() {
@@ -43,11 +73,21 @@ export function Header() {
 
             <ul className="hidden items-center gap-8 lg:flex">
               {NAV_LINKS.map((link) => (
-                <li key={link.label}>
-                  {link.external ? (
-                    <a href={link.href} target="_blank" rel="noreferrer" className="text-sm text-white/90 transition-colors hover:text-primary">{link.label}</a>
-                  ) : (
-                    <Link href={link.href} className="text-sm text-white/90 transition-colors hover:text-primary">{link.label}</Link>
+                <li key={link.label} className={link.children ? 'group relative' : undefined}>
+                  <Link href={link.href} className="inline-flex items-center gap-1 text-sm text-white/90 transition-colors hover:text-primary">
+                    {link.label}
+                    {link.children && <ChevronDown className="size-3.5 transition-transform duration-200 group-hover:rotate-180" aria-hidden="true" />}
+                  </Link>
+                  {link.children && (
+                    <div className="invisible absolute left-1/2 top-full z-50 w-64 -translate-x-1/2 pt-3 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+                      <div className="overflow-hidden rounded-lg border border-white/10 bg-black shadow-xl">
+                        {link.children.map((child) => (
+                          <Link key={child.label} href={child.href} className="block px-4 py-2.5 text-sm text-white/75 transition-colors hover:bg-white/5 hover:text-primary">
+                            {child.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
                   )}
                 </li>
               ))}
@@ -55,7 +95,7 @@ export function Header() {
 
             <div className="hidden lg:block">
               <Button
-                render={<a href="/#contact" />}
+                render={<a href="/contact" />}
                 nativeButton={false}
                 variant="outline"
                 className="h-auto rounded-full border border-primary bg-primary px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-white hover:text-black"
@@ -95,20 +135,25 @@ export function Header() {
               <X className="size-6" />
             </button>
           </div>
-          <ul className="flex flex-col gap-1 px-3 py-4">
+          <ul className="flex flex-col gap-1 overflow-y-auto px-3 py-4">
             {NAV_LINKS.map((link) => (
               <li key={link.label}>
-                {link.external ? (
-                  <a href={link.href} target="_blank" rel="noreferrer" onClick={() => setOpen(false)} className="block rounded-sm px-3 py-3 text-base text-foreground hover:bg-muted">{link.label}</a>
-                ) : (
-                  <Link href={link.href} onClick={() => setOpen(false)} className="block rounded-sm px-3 py-3 text-base text-foreground hover:bg-muted">{link.label}</Link>
+                <Link href={link.href} onClick={() => setOpen(false)} className="block rounded-sm px-3 py-3 text-base text-foreground hover:bg-muted">{link.label}</Link>
+                {link.children && (
+                  <ul className="ml-3 flex flex-col gap-0.5 border-l border-border/60 pl-3">
+                    {link.children.map((child) => (
+                      <li key={child.label}>
+                        <Link href={child.href} onClick={() => setOpen(false)} className="block rounded-sm px-3 py-2 text-sm text-muted-foreground hover:bg-muted hover:text-foreground">{child.label}</Link>
+                      </li>
+                    ))}
+                  </ul>
                 )}
               </li>
             ))}
           </ul>
           <div className="px-5">
             <Button
-              render={<a href="/#contact" />}
+              render={<a href="/contact" />}
               nativeButton={false}
               variant="secondary"
               onClick={() => setOpen(false)}
@@ -126,12 +171,16 @@ export function Header() {
 export function Footer() {
   return <footer className="site-footer" id="contact">
     <div className="container footer-grid">
-      <div><Link href="/" className="wordmark footer-mark">Pioneer <span>Biotech</span></Link><p className="footer-note">Engineering the future of healthcare through materials, technology, and expertise.</p></div>
-      <div><p className="footer-label">Divisions</p><div className="footer-links"><Link href="/pharma-biopharma">Pharma & Biopharma</Link><Link href={MEDICAL_DEVICES_URL}>Medical Devices</Link><Link href="/innovation-center">Innovation Center</Link></div></div>
-      <div><p className="footer-label">Company</p><div className="footer-links"><a href="#">[About]</a><a href="#">[Careers]</a></div></div>
-      <div><p className="footer-label">Contact</p><div className="footer-links"><a href="tel:+971503859559">+971 50 385 9559</a><a href="mailto:info@pbio.tech">info@pbio.tech</a><span>[International Business District — confirm full address]</span></div></div>
+      <div><Link href="/" className="footer-logo"><img src="/logos/logo-transparent.png" alt="Pioneer Biotech" /></Link><p className="footer-note">Engineering the future of healthcare through materials, technology, and expertise.</p></div>
+      <div><p className="footer-label">Divisions</p><div className="footer-links"><Link href="/pharma-biopharma">Pharmaceutical Solutions</Link><Link href={MEDICAL_DEVICES_URL}>Medical Devices</Link><Link href="/innovation-center">Innovation Hub</Link></div></div>
+      <div><p className="footer-label">Locations</p><div className="footer-links footer-addresses">
+        <span><strong>Egypt</strong>Trivium Square, Floor 2, Office 207, 5th Settlement, New Cairo, Egypt</span>
+        <span><strong>Abu Dhabi</strong>FD – First Floor, Incubator Building, Masdar City, Abu Dhabi, UAE</span>
+      </div></div>
+      <div><p className="footer-label">Company</p><div className="footer-links"><Link href="/about">About</Link></div></div>
+      <div><p className="footer-label">Contact</p><div className="footer-links"><a href="tel:+971503859559">+971 50 385 9559</a><a href="mailto:info@pbio.tech">info@pbio.tech</a></div></div>
     </div>
-    <div className="container footer-bottom"><span>© {new Date().getFullYear()} Pioneer Biotech. All rights reserved.</span><span>[LinkedIn] &nbsp; [Instagram]</span></div>
+    <div className="container footer-bottom"><span>© {new Date().getFullYear()} Pioneer Biotech. All rights reserved.</span><a href="https://www.linkedin.com/company/pioneer-biotech-llc/" target="_blank" rel="noreferrer">LinkedIn</a></div>
   </footer>
 }
 
@@ -141,36 +190,45 @@ export function Eyebrow({ children, light = false }: { children: React.ReactNode
 export function Breadcrumb({ children }: { children: React.ReactNode }) { return <p className="breadcrumb">{children}</p> }
 export function ButtonLink({ children, href, outline = false, external = false }: { children: React.ReactNode; href: string; outline?: boolean; external?: boolean }) { return external ? <a className={outline ? 'button button-outline' : 'button'} href={href} target="_blank" rel="noreferrer">{children}</a> : <a className={outline ? 'button button-outline' : 'button'} href={href}>{children}</a> }
 export function Arrow() { return <span aria-hidden="true"> →</span> }
-export function TrustStrip({ label = '[division-specific certifications — confirm]' }: { label?: string }) {
-  const items = ['GMP Certified', 'ISO Compliant', label]
-  return <section className="trust-strip"><Container><div className="trust-items">{items.map((item) => <span className="trust-item" key={item}><ShieldCheck aria-hidden="true" /> {item}</span>)}</div></Container></section>
+const STANDARDS = [
+  { label: 'GMP Certified', icon: ShieldCheck },
+  { label: 'ISO Compliant', icon: BadgeCheck },
+  { label: 'USP Standards', icon: FlaskConical },
+  { label: 'BP Compliant', icon: BookOpenCheck },
+  { label: 'EP Compliant', icon: Globe },
+]
+
+export function TrustStrip({ label }: { label?: string }) {
+  const items = label ? [...STANDARDS, { label, icon: Award }] : STANDARDS
+  return <section className="trust-strip"><Container><div className="trust-items">{items.map(({ label: itemLabel, icon: Icon }) => <span className="trust-item" key={itemLabel}><Icon aria-hidden="true" /> {itemLabel}</span>)}</div></Container></section>
 }
 
 export function SectionDivider({ children }: { children: React.ReactNode }) { return <section className="section-divider"><Container><p>{children}</p></Container></section> }
 
 const PARTNER_LOGOS = [
-  { name: 'BEA Technologies', src: '/logos/pharma-partners/bea.png' },
-  { name: 'Tisla', src: '/logos/pharma-partners/tisla.png' },
-  { name: 'Biotactical', src: '/logos/pharma-partners/biotactical.png' },
-  { name: 'Apitoria', src: '/logos/pharma-partners/apitoria.png' },
+  { name: 'BEA Technologies', src: '/logos/pharma-partners/bea.png', url: 'https://www.bea-italy.com/' },
+  { name: 'Tisla', src: '/logos/pharma-partners/tisla.png', url: 'https://tislagroup.com/' },
+  { name: 'Biotactical', src: '/logos/pharma-partners/biotactical.png', url: 'http://www.biotactical.nl/' },
+  { name: 'Apitoria', src: '/logos/pharma-partners/apitoria.png', url: 'https://www.apitoria.com/' },
+  { name: 'Indenta', src: '/logos/pharma-partners/indenta.png', url: 'https://www.indenta.com/' },
+  { name: 'Halogens', src: '/logos/pharma-partners/halogens.png', url: 'https://www.halogens.co.in/' },
 ]
 
 export function PartnerBar() {
-  const track = [...PARTNER_LOGOS, ...PARTNER_LOGOS]
   return (
     <section className="partner-bar">
       <Container>
         <Eyebrow>Trusted By Leading Partners</Eyebrow>
+        <div className="partner-track">
+          {PARTNER_LOGOS.map((partner) => <a key={partner.name} href={partner.url} target="_blank" rel="noreferrer" aria-label={partner.name}><img src={partner.src} alt={partner.name} loading="lazy" /></a>)}
+        </div>
       </Container>
-      <div className="partner-track">
-        {track.map((partner, i) => <img key={`${partner.name}-${i}`} src={partner.src} alt={partner.name} loading="lazy" />)}
-      </div>
     </section>
   )
 }
 
-export function PageHero({ breadcrumb, eyebrow, title, description, image }: { breadcrumb?: string; eyebrow: string; title: string; description: string; image?: string }) { return <section className={image ? 'page-hero has-image' : 'page-hero'}>{image && <img src={image} alt="" aria-hidden="true" />}<Container>{breadcrumb && <Breadcrumb>{breadcrumb}</Breadcrumb>}<Eyebrow light>{eyebrow}</Eyebrow><h1>{title}</h1><p className="hero-copy">{description}</p></Container></section> }
+export function PageHero({ breadcrumb, eyebrow, title, description, image, className = '' }: { breadcrumb?: string; eyebrow: string; title: React.ReactNode; description: string; image?: string; className?: string }) { return <section className={`${image ? 'page-hero has-image' : 'page-hero'} ${className}`.trim()}>{image && <img src={image} alt="" aria-hidden="true" />}<Container>{breadcrumb && <Breadcrumb>{breadcrumb}</Breadcrumb>}<Eyebrow light>{eyebrow}</Eyebrow><h1>{title}</h1><p className="hero-copy">{description}</p></Container></section> }
 
-export function ClosingCta({ title, description, buttons, dark = false }: { title: string; description: string; buttons: string[]; dark?: boolean }) { return <section className={dark ? 'closing closing-dark' : 'closing'}><Container><span className="closing-mark" aria-hidden="true" /><h2>{title}</h2><p>{description}</p><div className="button-row">{buttons.map((button, i) => <ButtonLink key={button} href="#contact" outline={i > 0}>{button}</ButtonLink>)}</div></Container></section> }
+export function ClosingCta({ title, description, buttons, links, dark = false }: { title: string; description: string; buttons: string[]; links?: string[]; dark?: boolean }) { return <section className={dark ? 'closing closing-dark' : 'closing'}><Container><span className="closing-mark" aria-hidden="true" /><h2>{title}</h2><p>{description}</p><div className="button-row">{buttons.map((button, i) => <ButtonLink key={button} href={links?.[i] ?? '#contact'} outline={i > 0}>{button}</ButtonLink>)}</div></Container></section> }
 
 export function IconMark({ children }: { children: React.ReactNode }) { return <div className="icon-mark" aria-hidden="true">{children}</div> }

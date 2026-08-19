@@ -13,8 +13,12 @@ __v0_jsx-dev-runtime.ts
 node_modules
 .next/
 .DS_Store
+tsconfig.tsbuildinfo
 
 # Redundant raw-asset dumps (already copied into /public, not referenced by code)
 /a1-frame-homepage-design/
 /pharma biopahrma images/
 /logos/
+/Halogens.png
+/indenta.png
+/fav icon.png
