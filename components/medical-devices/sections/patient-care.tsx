@@ -30,10 +30,7 @@ export function PatientCare() {
         {/* Left: text */}
         <div className="order-2 lg:order-1">
           <Reveal>
-            <p className="text-xs font-medium uppercase tracking-[0.1em] text-accent-foreground">
-              For patients &amp; families
-            </p>
-            <h2 className="mt-4 text-balance text-3xl md:text-4xl font-medium leading-snug text-accent-foreground-strong">
+            <h2 className="text-balance text-3xl md:text-4xl font-medium leading-snug text-accent-foreground-strong">
               Designed with your comfort and safety in mind.
             </h2>
             <p className="mt-4 text-pretty text-base leading-relaxed text-foreground">

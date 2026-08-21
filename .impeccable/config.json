@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "layout-transition",
+        "value": "height",
+        "files": [
+          "app/globals.css"
+        ],
+        "createdAt": "2026-08-21T17:22:02.081Z",
+        "reason": "Accordion open/close height transition using the standard CSS-var-driven technique (--accordion-panel-height); one-time on user interaction, not a continuous layout-thrash loop. Flagged and accepted as low-risk in the impeccable audit report."
+      }
+    ]
+  }
+}

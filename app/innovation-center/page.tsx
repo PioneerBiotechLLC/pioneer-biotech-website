@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Arrow, ButtonLink, Container, Eyebrow, SiteShell } from '@/components/site-shell'
+import { Arrow, ButtonLink, Container, SiteShell } from '@/components/site-shell'
 import { Faq } from '@/components/faq'
 
 const faqItems = [
@@ -24,7 +24,6 @@ export default function InnovationPage() {
       <img src="/images/innovation-center-hero-bg.jpeg" alt="" aria-hidden="true" />
       <Container>
         <p className="badge badge-pulse">Coming Soon</p>
-        <Eyebrow light>INNOVATION HUB</Eyebrow>
         <h1>Where Pharmaceutical Science Meets What&apos;s Next.</h1>
         <span className="hero-rule" aria-hidden="true" />
         <p className="hero-copy">Pioneer Biotech is building a dedicated home for technological innovation in pharmaceutical solutions — advancing formulation science, manufacturing technology, and process innovation. Backed by two working divisions, not a research company guessing at theory.</p>

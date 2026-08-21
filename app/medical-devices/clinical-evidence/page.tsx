@@ -41,10 +41,7 @@ function PageHero() {
       />
       <div className="relative z-10 mx-auto max-w-3xl px-5 text-center md:px-8">
         <Reveal>
-          <p className="text-xs font-medium uppercase tracking-[0.18em] text-primary">
-            Clinical evidence
-          </p>
-          <h1 className="mt-4 text-balance text-4xl font-semibold leading-tight text-white md:text-6xl">
+          <h1 className="text-balance text-4xl font-semibold leading-tight text-white md:text-6xl">
             Precision, proven in the operating room.
           </h1>
           <p className="mx-auto mt-6 max-w-xl text-pretty text-base leading-relaxed text-white/70 md:text-lg">
@@ -77,7 +74,7 @@ function OutcomesBar() {
           <dl className="grid grid-cols-2 gap-8 md:grid-cols-4">
             {OUTCOMES.map((stat) => (
               <div key={stat.label} className="text-center">
-                <dt className="font-mono text-3xl font-semibold text-primary md:text-4xl">
+                <dt className="font-mono text-3xl font-semibold text-accent-foreground-strong md:text-4xl">
                   {stat.value}
                 </dt>
                 <dd className="mx-auto mt-1.5 max-w-[180px] text-xs leading-snug text-muted-foreground">
@@ -163,7 +160,7 @@ function OutcomeAreas() {
             <Reveal key={area.title} delay={i * 80} className="h-full">
               <div className="group flex h-full flex-col rounded-2xl border border-border bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg hover:shadow-black/5">
                 <div className="flex size-11 items-center justify-center rounded-xl border border-primary/30 bg-primary/10 transition-colors duration-300 group-hover:border-primary/60 group-hover:bg-primary/20">
-                  <area.icon className="size-5 text-primary" strokeWidth={1.75} />
+                  <area.icon className="size-5 text-accent-foreground-strong" strokeWidth={1.75} />
                 </div>
                 <h3 className="mt-5 text-lg font-semibold text-surface-dark">{area.title}</h3>
                 <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
@@ -230,11 +227,11 @@ function StudiesSection() {
           {STUDIES.map((study, i) => (
             <Reveal key={study.title} delay={i * 70}>
               <article className="group flex flex-col gap-4 rounded-2xl border border-border bg-white p-6 transition-all duration-300 hover:border-primary/40 hover:shadow-lg hover:shadow-black/5 sm:flex-row sm:items-center sm:gap-6 sm:p-7">
-                <div className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-muted text-primary transition-colors duration-300 group-hover:bg-primary/10">
+                <div className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-muted text-accent-foreground-strong transition-colors duration-300 group-hover:bg-primary/10">
                   <FileText className="size-5" strokeWidth={1.75} />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <span className="inline-flex items-center rounded-sm bg-muted px-2.5 py-1 text-xs font-medium text-primary">
+                  <span className="inline-flex items-center rounded-sm bg-muted px-2.5 py-1 text-xs font-medium text-accent-foreground-strong">
                     {study.tag}
                   </span>
                   <h3 className="mt-2 text-base font-semibold text-surface-dark">{study.title}</h3>
@@ -338,7 +335,7 @@ function CtaSection() {
               render={<a href="/contact" />}
               nativeButton={false}
               variant="secondary"
-              className="h-auto w-full rounded-sm bg-primary px-6 py-3 text-sm font-medium text-white hover:bg-primary/90 sm:w-auto"
+              className="h-auto w-full rounded-sm bg-primary px-6 py-3 text-sm font-medium text-surface-dark hover:bg-primary/90 sm:w-auto"
             >
               Speak to our team
             </Button>
@@ -346,7 +343,7 @@ function CtaSection() {
               render={<a href="/medical-devices#products" />}
               nativeButton={false}
               variant="outline"
-              className="group h-auto w-full gap-1.5 rounded-sm border-border bg-transparent px-6 py-3 text-sm font-medium text-surface-dark hover:bg-white hover:text-primary sm:w-auto"
+              className="group h-auto w-full gap-1.5 rounded-sm border-border bg-transparent px-6 py-3 text-sm font-medium text-surface-dark hover:bg-white hover:text-accent-foreground-strong sm:w-auto"
             >
               Explore the product line
               <ArrowRight className="size-4 transition-transform duration-200 group-hover:translate-x-0.5" />

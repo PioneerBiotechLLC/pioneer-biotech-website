@@ -36,10 +36,7 @@ function PageHero() {
       <div className="absolute inset-0 bg-linear-to-b from-surface-dark/60 via-surface-dark/40 to-surface-dark/80" aria-hidden="true" />
       <div className="relative z-10 mx-auto max-w-3xl px-5 text-center md:px-8">
         <Reveal>
-          <p className="text-[11px] font-medium uppercase tracking-[0.1em] text-primary">
-            About us
-          </p>
-          <h1 className="mt-4 text-balance text-[clamp(1.875rem,4vw,3rem)] font-medium leading-tight text-white">
+          <h1 className="text-balance text-[clamp(1.875rem,4vw,3rem)] font-medium leading-tight text-white">
             Built on Science. Driven by Innovation.
           </h1>
           <p className="mx-auto mt-5 max-w-[580px] text-pretty text-[15px] leading-relaxed text-white/55">
@@ -71,7 +68,7 @@ function StatsBar() {
           <dl className="grid grid-cols-2 gap-8 md:grid-cols-4">
             {STATS.map((stat) => (
               <div key={stat.label} className="text-center">
-                <dt className="font-mono text-[clamp(1.75rem,4vw,2.5rem)] font-semibold text-primary">
+                <dt className="font-mono text-[clamp(1.75rem,4vw,2.5rem)] font-semibold text-accent-foreground-strong">
                   {stat.value}
                 </dt>
                 <dd className="mt-1.5 text-[12px] leading-snug text-muted-foreground">
@@ -101,10 +98,7 @@ function OurStorySection() {
     <section className="bg-white py-16 md:py-24">
       <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 px-5 md:px-8 lg:grid-cols-2 lg:gap-16">
         <Reveal>
-          <p className="text-[11px] font-medium uppercase tracking-[0.1em] text-primary">
-            Our story
-          </p>
-          <h2 className="mt-4 text-balance text-[clamp(1.625rem,3vw,2rem)] font-medium leading-snug text-surface-dark">
+          <h2 className="text-balance text-[clamp(1.625rem,3vw,2rem)] font-medium leading-snug text-surface-dark">
             From Regional Supplier to Global Partner
           </h2>
           <p className="mt-5 text-pretty text-[15px] leading-relaxed text-muted-foreground">
@@ -115,7 +109,7 @@ function OurStorySection() {
           <div className="mt-8 flex flex-col gap-4">
             {milestones.map((m) => (
               <div key={m.year} className="flex items-center gap-4">
-                <span className="shrink-0 font-mono text-[13px] font-semibold text-primary">
+                <span className="shrink-0 font-mono text-[13px] font-semibold text-accent-foreground-strong">
                   {m.year}
                 </span>
                 <span className="h-px flex-1 bg-border" />
@@ -158,7 +152,7 @@ function MissionVisionSection() {
       <div className="relative mx-auto max-w-6xl px-5 md:px-8">
         {/* Section label */}
         <Reveal className="mb-10 text-center">
-          <p className="text-[11px] font-medium uppercase tracking-[0.1em] text-primary">
+          <p className="text-[11px] font-medium uppercase tracking-[0.1em] text-accent-foreground-strong">
             What drives us
           </p>
         </Reveal>
@@ -178,10 +172,7 @@ function MissionVisionSection() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09Z" />
                 </svg>
               </div>
-              <p className="text-[11px] font-medium uppercase tracking-[0.1em] text-primary">
-                Our mission
-              </p>
-              <h2 className="mt-3 text-[clamp(1.25rem,2.5vw,1.5rem)] font-medium leading-snug text-white">
+              <h2 className="text-[clamp(1.25rem,2.5vw,1.5rem)] font-medium leading-snug text-white">
                 Enabling better patient outcomes through science and innovation.
               </h2>
               <div className="mt-5 h-px w-12 bg-primary/40 transition-all duration-500 group-hover:w-24 group-hover:bg-primary/70" />
@@ -205,10 +196,7 @@ function MissionVisionSection() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                 </svg>
               </div>
-              <p className="text-[11px] font-medium uppercase tracking-[0.1em] text-primary">
-                Our vision
-              </p>
-              <h2 className="mt-3 text-[clamp(1.25rem,2.5vw,1.5rem)] font-medium leading-snug text-white">
+              <h2 className="text-[clamp(1.25rem,2.5vw,1.5rem)] font-medium leading-snug text-white">
                 The most trusted pharmaceutical partner in emerging and established markets.
               </h2>
               <div className="mt-5 h-px w-12 bg-primary/40 transition-all duration-500 group-hover:w-24 group-hover:bg-primary/70" />
@@ -275,10 +263,7 @@ function CoreValuesSection() {
 
       <div className="relative mx-auto max-w-6xl px-5 md:px-8">
         <Reveal className="mx-auto max-w-2xl text-center">
-          <p className="text-[11px] font-medium uppercase tracking-[0.1em] text-primary">
-            Our values
-          </p>
-          <h2 className="mt-4 text-balance text-[clamp(1.75rem,3.5vw,2.5rem)] font-medium leading-tight text-white">
+          <h2 className="text-balance text-[clamp(1.75rem,3.5vw,2.5rem)] font-medium leading-tight text-white">
             What We Stand For
           </h2>
         </Reveal>
@@ -360,10 +345,7 @@ function InventorSection() {
 
         {/* Right: editorial copy + pull quote */}
         <Reveal delay={100}>
-          <p className="text-[11px] font-medium uppercase tracking-[0.1em] text-accent-foreground">
-            The design
-          </p>
-          <h2 className="mt-4 text-balance text-[clamp(1.625rem,3vw,2rem)] font-medium leading-snug text-accent-foreground-strong">
+          <h2 className="text-balance text-[clamp(1.625rem,3vw,2rem)] font-medium leading-snug text-accent-foreground-strong">
             Designed in the Operating Room, Not the Lab
           </h2>
           <p className="mt-5 text-pretty text-[15px] leading-relaxed text-foreground">

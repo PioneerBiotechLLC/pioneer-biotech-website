@@ -10,10 +10,7 @@ export function Software() {
         {/* Left: text + CTA */}
         <div className="order-2 lg:order-1">
           <Reveal>
-            <p className="text-xs font-medium uppercase tracking-[0.1em] text-primary">
-              Surgical planning software
-            </p>
-            <h2 className="mt-4 text-balance text-3xl md:text-4xl font-medium leading-tight text-surface-dark">
+            <h2 className="text-balance text-3xl md:text-4xl font-medium leading-tight text-surface-dark">
               Planning for Better Outcomes
             </h2>
             <p className="mt-4 max-w-md text-pretty text-base leading-relaxed text-muted-foreground">
@@ -27,7 +24,7 @@ export function Software() {
               render={<a href="/medical-devices/software" />}
               nativeButton={false}
               variant="outline"
-              className="group mt-8 h-auto gap-2 rounded-sm border-primary bg-transparent px-6 py-3 text-sm font-medium text-primary hover:bg-primary hover:text-white"
+              className="group mt-8 h-auto gap-2 rounded-sm border-primary bg-transparent px-6 py-3 text-sm font-medium text-accent-foreground-strong hover:bg-primary hover:text-surface-dark"
             >
               Explore the software
               <ArrowRight className="size-4 transition-transform duration-200 group-hover:translate-x-0.5" />

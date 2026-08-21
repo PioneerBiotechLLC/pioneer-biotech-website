@@ -233,7 +233,7 @@ export function PartnerBar() {
   )
 }
 
-export function PageHero({ breadcrumb, eyebrow, title, description, image, className = '' }: { breadcrumb?: string; eyebrow: string; title: React.ReactNode; description: string; image?: string; className?: string }) { return <section className={`${image ? 'page-hero has-image' : 'page-hero'} ${className}`.trim()}>{image && <Image src={image} alt="" aria-hidden="true" fill sizes="100vw" priority className="object-cover" />}<Container>{breadcrumb && <Breadcrumb>{breadcrumb}</Breadcrumb>}<Eyebrow light>{eyebrow}</Eyebrow><h1>{title}</h1><p className="hero-copy">{description}</p></Container></section> }
+export function PageHero({ breadcrumb, title, description, image, className = '' }: { breadcrumb?: string; title: React.ReactNode; description: string; image?: string; className?: string }) { return <section className={`${image ? 'page-hero has-image' : 'page-hero'} ${className}`.trim()}>{image && <Image src={image} alt="" aria-hidden="true" fill sizes="100vw" priority className="object-cover" />}<Container>{breadcrumb && <Breadcrumb>{breadcrumb}</Breadcrumb>}<h1>{title}</h1><p className="hero-copy">{description}</p></Container></section> }
 
 export function ClosingCta({ title, description, buttons, links, dark = false }: { title: string; description: string; buttons: string[]; links?: string[]; dark?: boolean }) { return <section className={dark ? 'closing closing-dark' : 'closing'}><Container><span className="closing-mark" aria-hidden="true" /><h2>{title}</h2><p>{description}</p><div className="button-row">{buttons.map((button, i) => <ButtonLink key={button} href={links?.[i] ?? '#contact'} outline={i > 0}>{button}</ButtonLink>)}</div></Container></section> }
 

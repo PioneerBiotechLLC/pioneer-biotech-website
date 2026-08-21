@@ -95,10 +95,7 @@ export function Products() {
     <section id="products" className="bg-white py-16 md:py-24">
       <div className="mx-auto max-w-6xl px-5 md:px-8">
         <Reveal>
-          <p className="text-xs font-medium uppercase tracking-[0.1em] text-primary">
-            The A1 family
-          </p>
-          <h2 className="mt-4 max-w-2xl text-balance text-3xl md:text-4xl font-medium leading-tight text-surface-dark">
+          <h2 className="max-w-2xl text-balance text-3xl md:text-4xl font-medium leading-tight text-surface-dark">
             One platform, eight clinical variants.
           </h2>
         </Reveal>
@@ -185,7 +182,7 @@ export function Products() {
                 <div className="flex items-start justify-between">
                   <div className="flex size-10 items-center justify-center rounded-lg bg-muted transition-colors duration-200 group-hover:bg-primary/10">
                     <v.icon
-                      className="size-5 text-muted-foreground transition-colors duration-200 group-hover:text-primary"
+                      className="size-5 text-muted-foreground transition-colors duration-200 group-hover:text-accent-foreground-strong"
                       strokeWidth={1.75}
                     />
                   </div>
@@ -197,7 +194,7 @@ export function Products() {
                 <p className="mt-1.5 flex-1 text-sm leading-relaxed text-muted-foreground">
                   {v.useCase}
                 </p>
-                <span className="mt-4 flex items-center gap-1 text-xs font-medium text-primary/60 transition-colors duration-200 group-hover:text-primary">
+                <span className="mt-4 flex items-center gap-1 text-xs font-medium text-accent-foreground-strong/70 transition-colors duration-200 group-hover:text-accent-foreground-strong">
                   Ask about this configuration <ArrowRight className="size-3 transition-transform duration-200 group-hover:translate-x-0.5" />
                 </span>
               </a>

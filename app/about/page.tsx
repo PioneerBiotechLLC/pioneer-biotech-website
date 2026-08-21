@@ -42,7 +42,7 @@ const values: [string, string, LucideIcon][] = [
 
 export default function AboutPage() {
   return <SiteShell><main>
-    <PageHero className="tight-top" eyebrow="ABOUT PIONEER BIOTECH" title="About Pioneer Biotech" description="A forward-thinking pharmaceutical company built on science, quality, and a commitment to improving global healthcare access." image="/images/about-hero.jpeg" />
+    <PageHero className="tight-top" title="About Pioneer Biotech" description="A forward-thinking pharmaceutical company built on science, quality, and a commitment to improving global healthcare access." image="/images/about-hero.jpeg" />
 
     <section className="section" id="glance">
       <Container>
@@ -54,7 +54,6 @@ export default function AboutPage() {
 
     <section className="section section-tan">
       <Container>
-        <Eyebrow>ONE COMPANY, THREE DIVISIONS</Eyebrow>
         <h2>One Company. Three Divisions.</h2>
         <p className="section-intro">Pioneer Biotech operates across three divisions — pharmaceutical manufacturing and supply, medical devices, and clinical training — united by the same commitment to quality and partnership.</p>
       </Container>
@@ -79,7 +78,6 @@ export default function AboutPage() {
 
     <section className="section">
       <Container>
-        <Eyebrow>OUR STORY</Eyebrow>
         <h2>Our Story</h2>
         <div className="featured-program story-layout">
           <div>
@@ -112,7 +110,6 @@ export default function AboutPage() {
 
     <section className="section">
       <Container>
-        <Eyebrow>OUR CORE VALUES</Eyebrow>
         <h2>What Guides Us</h2>
         <div className="card-grid three">
           {values.map(([title, body, Icon]) => <article className="program-card value-card" key={title as string}><IconMark><Icon className="value-icon" aria-hidden="true" /></IconMark><h3>{title}</h3><p>{body}</p></article>)}

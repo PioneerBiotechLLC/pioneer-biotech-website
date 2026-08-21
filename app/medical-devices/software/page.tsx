@@ -37,10 +37,7 @@ export default function SoftwarePage() {
           />
           <div className="relative z-10 mx-auto max-w-3xl px-5 text-center md:px-8">
             <Reveal>
-              <p className="text-xs font-medium uppercase tracking-[0.18em] text-primary">
-                Surgical planning software
-              </p>
-              <h1 className="mt-4 text-balance text-4xl font-semibold leading-tight text-white md:text-6xl">
+              <h1 className="text-balance text-4xl font-semibold leading-tight text-white md:text-6xl">
                 Planning for Better Outcomes
               </h1>
               <p className="mx-auto mt-6 max-w-xl text-pretty text-base leading-relaxed text-white/70 md:text-lg">

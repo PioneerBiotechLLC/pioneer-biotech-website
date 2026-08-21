@@ -117,7 +117,7 @@ function Badge({ tone, children }: { tone: 'accent' | 'muted'; children: string 
   return (
     <span
       className={`inline-flex items-center rounded-sm px-2.5 py-1 text-xs font-medium ${
-        tone === 'accent' ? 'bg-accent text-accent-foreground' : 'bg-muted text-primary'
+        tone === 'accent' ? 'bg-accent text-accent-foreground' : 'bg-muted text-accent-foreground-strong'
       }`}
     >
       {children}
@@ -153,8 +153,7 @@ function FeatureDialog({
           </div>
 
           <div className="flex flex-col overflow-y-auto p-6 md:p-10">
-            <p className="text-xs font-medium uppercase tracking-[0.1em] text-primary">Features</p>
-            <Dialog.Title className="mt-3 text-xl font-semibold leading-tight text-surface-dark md:text-2xl">
+            <Dialog.Title className="text-xl font-semibold leading-tight text-surface-dark md:text-2xl">
               {feature.title}
             </Dialog.Title>
             <div className="mt-3">

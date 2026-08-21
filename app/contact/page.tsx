@@ -90,7 +90,7 @@ export default function ContactPage() {
   }
 
   return <SiteShell><main>
-    <PageHero breadcrumb="Pioneer Biotech / Contact" eyebrow="GET IN TOUCH" title="Let's Start a Conversation." description="Sourcing pharmaceutical materials, adopting the A1 Frame, or exploring our Innovation Hub — tell us what you need and we'll route you to the right specialist." image="/images/contact-hero.jpeg" />
+    <PageHero breadcrumb="Pioneer Biotech / Contact" title="Let's Start a Conversation." description="Sourcing pharmaceutical materials, adopting the A1 Frame, or exploring our Innovation Hub — tell us what you need and we'll route you to the right specialist." image="/images/contact-hero.jpeg" />
 
     <section className="section">
       <Container>

@@ -83,7 +83,7 @@ function SpecCard({ name, bullets, image, fit = 'cover' }: { name: string; bulle
 }
 
 export default function PharmaPage() {
-  return <SiteShell><main className="pharma-page"><PageHero className="hero-type-match" eyebrow="PHARMA SOLUTIONS" title={<>Everything Your<br /> <span className="accent">Pharma Line Needs.</span></>} description="From active pharmaceutical ingredients to turnkey cleanroom infrastructure, Pioneer Biotech supplies the raw materials, equipment, and engineered facilities pharmaceutical manufacturers depend on." image="/images/pharma-hero.jpeg" />
+  return <SiteShell><main className="pharma-page"><PageHero className="hero-type-match" title={<>Everything Your<br /> <span className="accent">Pharma Line Needs.</span></>} description="From active pharmaceutical ingredients to turnkey cleanroom infrastructure, Pioneer Biotech supplies the raw materials, equipment, and engineered facilities pharmaceutical manufacturers depend on." image="/images/pharma-hero.jpeg" />
 
     <AccordionGroup defaultValue={[]}>
       <AccordionSection value="upstream-downstream" header={<><Eyebrow>01 — UPSTREAM & DOWNSTREAM</Eyebrow><h2>Process systems for every stage of production.</h2></>}>
@@ -139,7 +139,7 @@ export default function PharmaPage() {
       </AccordionSection>
     </AccordionGroup>
 
-    <section id="trusted-partners" className="section section-tan"><Container><Eyebrow>TRUSTED PARTNERS</Eyebrow><h2>Specialists behind every supply chain.</h2><div className="card-grid three">{partners.map(([name, detail, logo, url]) => <a className="partner-card" href={url} target="_blank" rel="noreferrer" key={name}><div className="partner-logo"><img src={logo} alt={name} loading="lazy" /></div><h3>{name}</h3>{detail && <p>{detail}</p>}</a>)}</div></Container></section>
+    <section id="trusted-partners" className="section section-tan"><Container><h2>Specialists behind every supply chain.</h2><div className="card-grid three">{partners.map(([name, detail, logo, url]) => <a className="partner-card" href={url} target="_blank" rel="noreferrer" key={name}><div className="partner-logo"><img src={logo} alt={name} loading="lazy" /></div><h3>{name}</h3>{detail && <p>{detail}</p>}</a>)}</div></Container></section>
     <TrustStrip />
     <Faq items={faqItems} />
     <ClosingCta title="Source With Confidence" description="Tell us what your line needs — raw materials, lab equipment, or turnkey facility infrastructure — and a specialist will get back to you with a quote." buttons={['Contact Us', 'Contact a Specialist']} links={['/contact']} /></main></SiteShell>

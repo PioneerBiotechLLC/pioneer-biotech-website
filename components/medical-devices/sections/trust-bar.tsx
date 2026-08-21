@@ -103,7 +103,7 @@ export function TrustBar() {
               {BADGES.map((badge) => (
                 <span
                   key={badge.label}
-                  className="inline-flex items-center gap-1.5 rounded-sm border border-black/10 bg-white/70 px-3 py-1.5 text-xs font-medium text-foreground/60 transition-all duration-200 hover:scale-110 hover:border-primary/40 hover:bg-primary/8 hover:text-primary"
+                  className="inline-flex items-center gap-1.5 rounded-sm border border-black/10 bg-white/70 px-3 py-1.5 text-xs font-medium text-foreground/60 transition-all duration-200 hover:scale-110 hover:border-primary/40 hover:bg-primary/8 hover:text-accent-foreground-strong"
                 >
                   {badge.icon && <ShieldCheck className="size-3 shrink-0 text-foreground/40" strokeWidth={2} />}
                   {badge.label}
@@ -157,7 +157,7 @@ export function TrustBar() {
 
             <div className="mt-5 h-px bg-border" />
 
-            <p className="mt-4 text-center text-xs font-medium uppercase tracking-[0.1em] text-primary">
+            <p className="mt-4 text-center text-xs font-medium uppercase tracking-[0.1em] text-accent-foreground-strong">
               A1 Frame Partner
             </p>
           </div>

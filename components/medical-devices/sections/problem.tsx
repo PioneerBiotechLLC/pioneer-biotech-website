@@ -203,7 +203,7 @@ export function Problem() {
                         <img src={row.newImage} alt={row.newText} loading="lazy" className="size-full object-cover" />
                       </div>
                       <div className="min-w-0">
-                        <p className="text-xs font-medium uppercase tracking-[0.1em] text-primary">
+                        <p className="text-xs font-medium uppercase tracking-[0.1em] text-accent-foreground-strong">
                           A1 Frame
                         </p>
                         <p className="mt-0.5 line-clamp-2 text-base font-semibold text-surface-dark">{row.newText}</p>
@@ -212,7 +212,7 @@ export function Problem() {
                   </div>
 
                   <p
-                    className="px-5 pb-4 text-xs text-border transition-opacity duration-200"
+                    className="px-5 pb-4 text-xs text-muted-foreground transition-opacity duration-200"
                     style={{ opacity: active ? 0 : 1 }}
                   >
                     Hover to see the A1 solution
@@ -228,7 +228,7 @@ export function Problem() {
       <Reveal>
         <div className="relative mx-auto flex max-w-5xl items-center gap-4 px-5 pb-16 pt-4 md:px-8 md:pb-24">
           <span className="h-px flex-1 bg-border" />
-          <p className="shrink-0 text-xs font-medium uppercase tracking-[0.2em] text-primary">
+          <p className="shrink-0 text-xs font-medium uppercase tracking-[0.2em] text-accent-foreground-strong">
             8 problems solved. One frame.
           </p>
           <span className="h-px flex-1 bg-border" />
