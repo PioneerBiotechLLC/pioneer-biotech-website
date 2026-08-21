@@ -21,8 +21,9 @@ const interests = ['Pharma Solutions', 'Medical Devices', 'Innovation Hub']
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [sending, setSending] = useState(false)
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const form = e.currentTarget
     const data = new FormData(form)
@@ -40,23 +41,52 @@ export default function ContactPage() {
       return
     }
     setError(null)
+    setSending(true)
 
-    // No backend yet — opens the visitor's email client with the message
-    // pre-filled so the form is genuinely functional with no server.
-    const body = [
-      `Name: ${name}`,
-      `Email: ${email}`,
-      `Company: ${data.get('company') || '—'}`,
-      `Country: ${data.get('country') || '—'}`,
-      `Interested In: ${data.get('interest') || '—'}`,
-      `Newsletter opt-in: ${data.get('newsletter') ? 'Yes' : 'No'}`,
-      '',
+    const payload = {
+      name,
+      email,
+      company: String(data.get('company') || ''),
+      country: String(data.get('country') || ''),
+      interest: String(data.get('interest') || ''),
       message,
-    ].join('\n')
-    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(`Website enquiry — ${name}`)}&body=${encodeURIComponent(body)}`
+      newsletter: Boolean(data.get('newsletter')),
+      website: String(data.get('website') || ''), // honeypot
+    }
 
-    setSubmitted(true)
-    form.reset()
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      })
+
+      if (!res.ok) {
+        const body = await res.json().catch(() => ({}))
+        throw new Error(body.error || 'Failed to send message.')
+      }
+
+      setSubmitted(true)
+      form.reset()
+    } catch {
+      // Falls back to the visitor's own email client if the API is unreachable
+      // or misconfigured, so the form still gets the message through.
+      const body = [
+        `Name: ${name}`,
+        `Email: ${email}`,
+        `Company: ${payload.company || '—'}`,
+        `Country: ${payload.country || '—'}`,
+        `Interested In: ${payload.interest || '—'}`,
+        `Newsletter opt-in: ${payload.newsletter ? 'Yes' : 'No'}`,
+        '',
+        message,
+      ].join('\n')
+      window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(`Website enquiry — ${name}`)}&body=${encodeURIComponent(body)}`
+      setSubmitted(true)
+      form.reset()
+    } finally {
+      setSending(false)
+    }
   }
 
   return <SiteShell><main>
@@ -68,12 +98,20 @@ export default function ContactPage() {
           <div>
             {submitted ? (
               <div className="form-success">
-                <h3>Message Ready to Send</h3>
-                <p>We've opened your email client with your message pre-filled — just hit send, and our team will get back to you within one business day.</p>
+                <h3>Message Sent</h3>
+                <p>Thanks for reaching out — our team will get back to you within one business day.</p>
                 <button type="button" onClick={() => setSubmitted(false)} className="text-link" style={{ display: 'inline-block', marginTop: '1.5rem' }}>Send another message</button>
               </div>
             ) : (
               <form className="contact-form" onSubmit={handleSubmit} noValidate>
+                <input
+                  type="text"
+                  name="website"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', opacity: 0 }}
+                />
                 <div className="form-row">
                   <div className="form-field">
                     <label htmlFor="name">Full Name *</label>
@@ -109,7 +147,7 @@ export default function ContactPage() {
                   <span>Send me occasional updates from Pioneer Biotech</span>
                 </label>
                 {error && <p role="alert" className="form-error">{error}</p>}
-                <button type="submit" className="button">Send Message</button>
+                <button type="submit" className="button" disabled={sending}>{sending ? 'Sending…' : 'Send Message'}</button>
               </form>
             )}
           </div>
