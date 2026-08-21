@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import { Award, BadgeCheck, BookOpenCheck, ChevronDown, FlaskConical, Globe, Menu, ShieldCheck, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
@@ -11,7 +12,7 @@ export const MEDICAL_DEVICES_URL = '/medical-devices'
 const NAV_LINKS = [
   { label: 'About', href: '/about' },
   {
-    label: 'Pharmaceutical Solutions',
+    label: 'Pharma Solutions',
     href: '/pharma-biopharma',
     children: [
       { label: 'Overview', href: '/pharma-biopharma' },
@@ -28,11 +29,11 @@ const NAV_LINKS = [
     href: MEDICAL_DEVICES_URL,
     children: [
       { label: 'Overview', href: MEDICAL_DEVICES_URL },
-      { label: 'Products', href: '/medical-devices/products' },
+      { label: 'Products', href: '/medical-devices#products' },
       { label: 'Software', href: '/medical-devices/software' },
       { label: 'Clinical Evidence', href: '/medical-devices/clinical-evidence' },
       { label: 'About', href: '/medical-devices/about' },
-      { label: 'Contact', href: '/medical-devices/contact' },
+      { label: 'Contact', href: '/contact' },
     ],
   },
   {
@@ -68,7 +69,7 @@ export function Header() {
         <header className={cn('mx-auto bg-black transition-all duration-500 ease-out', scrolled ? 'max-w-6xl rounded-full nav-glow' : 'max-w-full rounded-none border-b border-white/10 shadow-none')}>
           <nav className="flex h-16 items-center justify-between px-5 md:px-8">
             <Link href="/" className="flex items-center" onClick={() => setOpen(false)}>
-              <img src="/logos/logo.jpeg" alt="Pioneer Biotech" className="h-12 w-auto max-w-[180px] object-contain brightness-125" />
+              <Image src="/logos/logo.jpeg" alt="Pioneer Biotech" width={1339} height={747} priority className="h-12 w-auto max-w-[180px] object-contain brightness-125" />
             </Link>
 
             <ul className="hidden items-center gap-8 lg:flex">
@@ -98,7 +99,12 @@ export function Header() {
                 render={<a href="/contact" />}
                 nativeButton={false}
                 variant="outline"
-                className="h-auto rounded-full border border-primary bg-primary px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-white hover:text-black"
+                // The `outline` variant's dark: classes reference shadcn tokens (--input) that
+                // only exist inside .a1-scope (medical-devices); this button renders in the
+                // sitewide header, so under OS/browser dark mode those tokens are undefined and
+                // the button turns transparent against the black nav bar. Overriding every dark:
+                // slot below neutralizes that regardless of cascade order.
+                className="h-auto rounded-full border border-primary bg-primary px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-white hover:text-black dark:border-primary dark:bg-primary dark:text-white dark:hover:bg-white dark:hover:text-black"
               >
                 Contact Us
               </Button>
@@ -130,7 +136,7 @@ export function Header() {
           )}
         >
           <div className="flex h-16 items-center justify-between border-b border-border/60 px-5">
-            <img src="/logos/logo.jpeg" alt="Pioneer Biotech" className="h-9 w-auto max-w-[140px] object-contain" />
+            <Image src="/logos/logo.jpeg" alt="Pioneer Biotech" width={1339} height={747} className="h-9 w-auto max-w-[140px] object-contain" />
             <button type="button" aria-label="Close menu" onClick={() => setOpen(false)} className="text-foreground">
               <X className="size-6" />
             </button>
@@ -171,8 +177,8 @@ export function Header() {
 export function Footer() {
   return <footer className="site-footer" id="contact">
     <div className="container footer-grid">
-      <div><Link href="/" className="footer-logo"><img src="/logos/logo-transparent.png" alt="Pioneer Biotech" /></Link><p className="footer-note">Engineering the future of healthcare through materials, technology, and expertise.</p></div>
-      <div><p className="footer-label">Divisions</p><div className="footer-links"><Link href="/pharma-biopharma">Pharmaceutical Solutions</Link><Link href={MEDICAL_DEVICES_URL}>Medical Devices</Link><Link href="/innovation-center">Innovation Hub</Link></div></div>
+      <div><Link href="/" className="footer-logo"><Image src="/logos/logo-transparent.png" alt="Pioneer Biotech" width={1339} height={747} /></Link><p className="footer-note">Engineering the future of healthcare through materials, technology, and expertise.</p></div>
+      <div><p className="footer-label">Divisions</p><div className="footer-links"><Link href="/pharma-biopharma">Pharma Solutions</Link><Link href={MEDICAL_DEVICES_URL}>Medical Devices</Link><Link href="/innovation-center">Innovation Hub</Link></div></div>
       <div><p className="footer-label">Locations</p><div className="footer-links footer-addresses">
         <span><strong>Egypt</strong>Trivium Square, Floor 2, Office 207, 5th Settlement, New Cairo, Egypt</span>
         <span><strong>Abu Dhabi</strong>FD – First Floor, Incubator Building, Masdar City, Abu Dhabi, UAE</span>
@@ -206,12 +212,12 @@ export function TrustStrip({ label }: { label?: string }) {
 export function SectionDivider({ children }: { children: React.ReactNode }) { return <section className="section-divider"><Container><p>{children}</p></Container></section> }
 
 const PARTNER_LOGOS = [
-  { name: 'BEA Technologies', src: '/logos/pharma-partners/bea.png', url: 'https://www.bea-italy.com/' },
-  { name: 'Tisla', src: '/logos/pharma-partners/tisla.png', url: 'https://tislagroup.com/' },
-  { name: 'Biotactical', src: '/logos/pharma-partners/biotactical.png', url: 'http://www.biotactical.nl/' },
-  { name: 'Apitoria', src: '/logos/pharma-partners/apitoria.png', url: 'https://www.apitoria.com/' },
-  { name: 'Indenta', src: '/logos/pharma-partners/indenta.png', url: 'https://www.indenta.com/' },
-  { name: 'Halogens', src: '/logos/pharma-partners/halogens.png', url: 'https://www.halogens.co.in/' },
+  { name: 'BEA Technologies', src: '/logos/pharma-partners/bea.png', url: 'https://www.bea-italy.com/', width: 1350, height: 629 },
+  { name: 'Tisla', src: '/logos/pharma-partners/tisla.png', url: 'https://tislagroup.com/', width: 1325, height: 381 },
+  { name: 'Biotactical', src: '/logos/pharma-partners/biotactical.png', url: 'http://www.biotactical.nl/', width: 451, height: 451 },
+  { name: 'Apitoria', src: '/logos/pharma-partners/apitoria.png', url: 'https://www.apitoria.com/', width: 385, height: 189 },
+  { name: 'Indenta', src: '/logos/pharma-partners/indenta.png', url: 'https://www.indenta.com/', width: 2000, height: 988 },
+  { name: 'Halogens', src: '/logos/pharma-partners/halogens.png', url: 'https://www.halogens.co.in/', width: 1535, height: 1536 },
 ]
 
 export function PartnerBar() {
@@ -220,14 +226,14 @@ export function PartnerBar() {
       <Container>
         <Eyebrow>Trusted By Leading Partners</Eyebrow>
         <div className="partner-track">
-          {PARTNER_LOGOS.map((partner) => <a key={partner.name} href={partner.url} target="_blank" rel="noreferrer" aria-label={partner.name}><img src={partner.src} alt={partner.name} loading="lazy" /></a>)}
+          {PARTNER_LOGOS.map((partner) => <a key={partner.name} href={partner.url} target="_blank" rel="noreferrer" aria-label={partner.name}><Image src={partner.src} alt={partner.name} width={partner.width} height={partner.height} loading="lazy" /></a>)}
         </div>
       </Container>
     </section>
   )
 }
 
-export function PageHero({ breadcrumb, eyebrow, title, description, image, className = '' }: { breadcrumb?: string; eyebrow: string; title: React.ReactNode; description: string; image?: string; className?: string }) { return <section className={`${image ? 'page-hero has-image' : 'page-hero'} ${className}`.trim()}>{image && <img src={image} alt="" aria-hidden="true" />}<Container>{breadcrumb && <Breadcrumb>{breadcrumb}</Breadcrumb>}<Eyebrow light>{eyebrow}</Eyebrow><h1>{title}</h1><p className="hero-copy">{description}</p></Container></section> }
+export function PageHero({ breadcrumb, eyebrow, title, description, image, className = '' }: { breadcrumb?: string; eyebrow: string; title: React.ReactNode; description: string; image?: string; className?: string }) { return <section className={`${image ? 'page-hero has-image' : 'page-hero'} ${className}`.trim()}>{image && <Image src={image} alt="" aria-hidden="true" fill sizes="100vw" priority className="object-cover" />}<Container>{breadcrumb && <Breadcrumb>{breadcrumb}</Breadcrumb>}<Eyebrow light>{eyebrow}</Eyebrow><h1>{title}</h1><p className="hero-copy">{description}</p></Container></section> }
 
 export function ClosingCta({ title, description, buttons, links, dark = false }: { title: string; description: string; buttons: string[]; links?: string[]; dark?: boolean }) { return <section className={dark ? 'closing closing-dark' : 'closing'}><Container><span className="closing-mark" aria-hidden="true" /><h2>{title}</h2><p>{description}</p><div className="button-row">{buttons.map((button, i) => <ButtonLink key={button} href={links?.[i] ?? '#contact'} outline={i > 0}>{button}</ButtonLink>)}</div></Container></section> }
 

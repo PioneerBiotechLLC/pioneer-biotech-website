@@ -2,31 +2,22 @@ import type { Metadata } from 'next'
 import { ArrowRight } from 'lucide-react'
 import { Reveal } from '@/components/medical-devices/reveal'
 import { Button } from '@/components/ui/button'
-import { asset, cn } from '@/lib/utils'
+import { Faq } from '@/components/medical-devices/sections/faq'
+import { asset } from '@/lib/utils'
+
+const faqItems = [
+  { question: 'Who designs and manufactures the NeuroTech A1 Stereotactic Frame?', answer: 'Pioneer Biotech — designed with practicing neurosurgeons and manufactured in-house, bringing a bilateral trajectory design to market for the first time.' },
+  { question: "How does a pharmaceutical company end up building a neurosurgical device?", answer: 'Pioneer Biotech\'s global manufacturing infrastructure and regulatory expertise provide the backbone that brought the NeuroTech A1 Stereotactic Frame from concept to operating room, applying the same quality and compliance standards used across our pharma supply chain.' },
+  { question: 'Is the NeuroTech A1 Stereotactic Frame patented?', answer: 'Yes — it is patented and available globally, with institutional evaluation currently open.' },
+  { question: 'Is it available globally?', answer: 'Yes. We work with hospitals and distributors worldwide — contact our team to discuss availability in your region.' },
+  { question: 'How can hospitals request a clinical evaluation kit?', answer: 'Speak with our team through the contact page, or view the full specification on our Products section, and we\'ll arrange an evaluation kit.' },
+]
 
 export const metadata: Metadata = {
-  title: 'About Us — Pioneer Biotech',
+  title: 'Our Medical Devices Story | Pioneer Biotech',
   description:
-    'Pioneer Biotech is a global pharmaceutical company committed to bringing precision medical technology to healthcare teams worldwide. Manufacturers of the A1 Stereotactic Frame.',
-}
-
-// ─────────────────────────────────────────────────────────────────────────────
-// Shared helpers
-// ─────────────────────────────────────────────────────────────────────────────
-
-function ImagePlaceholder({ label, className }: { label: string; className?: string }) {
-  return (
-    <div
-      className={cn(
-        'flex items-center justify-center rounded-2xl bg-surface-muted px-4 text-center text-[13px] font-medium italic text-muted-foreground',
-        className,
-      )}
-      role="img"
-      aria-label={label}
-    >
-      {label}
-    </div>
-  )
+    'Pioneer Biotech designs and manufactures the NeuroTech A1 Stereotactic Frame, bringing precision neurosurgical technology to healthcare teams worldwide.',
+  alternates: { canonical: '/medical-devices/about' },
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -66,7 +57,7 @@ function PageHero() {
 // ─────────────────────────────────────────────────────────────────────────────
 
 const STATS = [
-  { value: '15+', label: 'Years in Operation' },
+  { value: '8+', label: 'Years in Operation' },
   { value: '50+', label: 'Countries Served' },
   { value: '10,000+', label: 'Products in Portfolio' },
   { value: '500+', label: 'B2B Partners Worldwide' },
@@ -117,7 +108,7 @@ function OurStorySection() {
             From Regional Supplier to Global Partner
           </h2>
           <p className="mt-5 text-pretty text-[15px] leading-relaxed text-muted-foreground">
-            Over 15 years, Pioneer Biotech grew from a regional supplier into a trusted partner
+            Over 8 years, Pioneer Biotech grew from a regional supplier into a trusted partner
             for hospitals, distributors, and healthcare companies across 50+ countries.
           </p>
 
@@ -138,6 +129,7 @@ function OurStorySection() {
           <img
             src={asset('/images/our_story.jpeg')}
             alt="Pioneer Biotech team"
+            loading="lazy"
             className="w-full rounded-2xl object-cover"
           />
         </Reveal>
@@ -329,26 +321,30 @@ function CoreValuesSection() {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Section 6 — The inventor
+// Section 6 — Design & manufacturing
 // ─────────────────────────────────────────────────────────────────────────────
 
-const CREDENTIALS = ['Neurosurgeon', 'Inventor', 'A1 Frame Designer']
+const CREDENTIALS = ['Designed With Neurosurgeons', 'Patented', 'Manufactured by Pioneer Biotech']
 
 function InventorSection() {
   return (
     <section className="bg-accent py-16 md:py-24">
       <div className="mx-auto grid max-w-6xl grid-cols-1 items-start gap-12 px-5 md:px-8 lg:grid-cols-2 lg:gap-16">
-        {/* Left: portrait + name + credentials */}
+        {/* Left: product photo + credentials */}
         <Reveal>
-          <ImagePlaceholder
-            label="Dr. Abdelwahab Portrait"
-            className="aspect-[3/4] w-full"
-          />
+          <div className="aspect-[3/4] w-full overflow-hidden rounded-2xl bg-surface-muted">
+            <img
+              src={asset('/images/A1_image.jpg')}
+              alt="NeuroTech A1 Stereotactic Frame"
+              className="size-full object-cover"
+              loading="lazy"
+            />
+          </div>
           <p className="mt-5 text-lg font-bold text-accent-foreground-strong">
-            Dr. Ahmed Abdelwahab
+            NeuroTech A1 Stereotactic Frame
           </p>
           <p className="mt-1 text-[13px] text-foreground">
-            Neurosurgeon &amp; Inventor of the A1 Stereotactic Frame
+            Designed and manufactured by Pioneer Biotech
           </p>
           <div className="mt-4 flex flex-wrap gap-2">
             {CREDENTIALS.map((credential) => (
@@ -365,20 +361,20 @@ function InventorSection() {
         {/* Right: editorial copy + pull quote */}
         <Reveal delay={100}>
           <p className="text-[11px] font-medium uppercase tracking-[0.1em] text-accent-foreground">
-            The inventor
+            The design
           </p>
           <h2 className="mt-4 text-balance text-[clamp(1.625rem,3vw,2rem)] font-medium leading-snug text-accent-foreground-strong">
-            The Inventor Behind the Innovation
+            Designed in the Operating Room, Not the Lab
           </h2>
           <p className="mt-5 text-pretty text-[15px] leading-relaxed text-foreground">
-            The A1 Stereotactic Frame was conceived by Dr. Ahmed Abdelwahab, a neurosurgeon who
-            spent years working with existing stereotactic systems and identifying their
-            fundamental limitations. His clinical experience — and his refusal to accept the
-            status quo — led to the design of the world&apos;s first bilateral trajectory
-            stereotactic frame.
+            The NeuroTech A1 Stereotactic Frame was developed by Pioneer Biotech&apos;s medical
+            devices team working directly alongside practicing neurosurgeons — studying the
+            fundamental limitations of existing stereotactic systems firsthand and designing
+            around them, rather than starting from theory.
           </p>
           <p className="mt-4 text-pretty text-[15px] leading-relaxed text-foreground">
-            Pioneer Biotech was built to bring his invention to neurosurgeons worldwide.
+            That collaboration between clinical experience and engineering discipline led to the
+            world&apos;s first bilateral trajectory stereotactic frame.
           </p>
 
           <blockquote className="mt-8 border-l-2 border-primary bg-white/60 py-4 pl-5 pr-4">
@@ -387,7 +383,7 @@ function InventorSection() {
               operating room.&rdquo;
             </p>
             <footer className="mt-2 text-[13px] font-medium not-italic text-secondary">
-              — Dr. Ahmed Abdelwahab, Neurosurgeon &amp; Inventor
+              — Pioneer Biotech, Medical Devices Division
             </footer>
           </blockquote>
         </Reveal>
@@ -452,7 +448,7 @@ function CtaSection() {
             Ready to Learn More?
           </h2>
           <p className="mt-4 text-[14px] leading-relaxed text-white/55">
-            Speak with our team about the A1 Stereotactic Frame or{' '}
+            Speak with our team about the NeuroTech A1 Stereotactic Frame or{' '}
             {/* TODO(placeholder): swap for the real Pioneer Biotech production domain once live */}
             <a
               href="https://www.pbio.tech"
@@ -469,7 +465,7 @@ function CtaSection() {
         <Reveal delay={80}>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Button
-              render={<a href="/medical-devices/contact" />}
+              render={<a href="/contact" />}
               nativeButton={false}
               variant="secondary"
               className="h-auto w-full rounded-sm bg-white px-6 py-3 text-sm font-medium text-surface-dark hover:bg-muted sm:w-auto"
@@ -477,12 +473,12 @@ function CtaSection() {
               Speak to a Specialist
             </Button>
             <Button
-              render={<a href="/medical-devices/products#a1-frame" />}
+              render={<a href="/medical-devices#a1-frame" />}
               nativeButton={false}
               variant="outline"
               className="h-auto w-full rounded-sm border-white/50 bg-transparent px-6 py-3 text-sm font-medium text-white hover:bg-white/10 hover:text-white sm:w-auto"
             >
-              Download Spec Sheet
+              View Specifications
             </Button>
           </div>
         </Reveal>
@@ -514,6 +510,7 @@ export default function AboutPage() {
         <MissionVisionSection />
         <CoreValuesSection />
         <InventorSection />
+        <Faq items={faqItems} />
         <CtaSection />
       </main>
     </>

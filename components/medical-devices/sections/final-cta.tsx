@@ -21,7 +21,7 @@ export function FinalCta() {
         <Reveal delay={200}>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Button
-              render={<a href="/medical-devices/contact" />}
+              render={<a href="/contact" />}
               nativeButton={false}
               variant="secondary"
               className="h-auto w-full rounded-sm bg-white px-8 py-3.5 text-sm font-medium text-surface-dark hover:bg-muted sm:w-auto"
@@ -29,12 +29,12 @@ export function FinalCta() {
               Speak with our team
             </Button>
             <Button
-              render={<a href="/medical-devices/products" />}
+              render={<a href="/medical-devices/clinical-evidence" />}
               nativeButton={false}
               variant="outline"
               className="h-auto w-full rounded-sm border-white/30 bg-transparent px-8 py-3.5 text-sm font-medium text-white hover:bg-white/10 hover:text-white sm:w-auto"
             >
-              Learn more
+              Review the evidence
             </Button>
           </div>
         </Reveal>

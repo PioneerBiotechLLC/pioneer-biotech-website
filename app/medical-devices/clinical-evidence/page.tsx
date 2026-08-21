@@ -2,11 +2,21 @@ import type { Metadata } from 'next'
 import { ArrowRight, Crosshair, Clock, HeartPulse, FileText, Quote } from 'lucide-react'
 import { Reveal } from '@/components/medical-devices/reveal'
 import { Button } from '@/components/ui/button'
+import { Faq } from '@/components/medical-devices/sections/faq'
+
+const faqItems = [
+  { question: 'What clinical evidence supports the A1 Frame\'s accuracy claims?', answer: 'Reported outcomes include sub-millimeter mean trajectory accuracy and a 50% reduction in average operative time compared to conventional bilateral procedures, drawn from surgeon-reported clinical experience.' },
+  { question: 'Has it been used in peer-reviewed studies?', answer: 'The evidence base is actively growing as institutional evaluation expands. Contact our team for the latest available data and publications.' },
+  { question: 'What outcomes have surgeons reported?', answer: "Faster time from concept to operating room, precision that holds to exact specifications, and simplified bilateral access — see the surgeon testimonials above." },
+  { question: 'Can I request full study data or a clinical evaluation kit?', answer: 'Yes — speak with our team to request a clinical evaluation kit or the underlying evidence supporting the A1 Frame.' },
+  { question: 'Are surgeon testimonials available?', answer: 'Yes, several are featured on this page, with more available on request as our clinical evaluation program expands.' },
+]
 
 export const metadata: Metadata = {
-  title: 'Clinical Evidence — A1 Stereotactic Frame',
+  title: 'Clinical Evidence — NeuroTech A1 Stereotactic Frame',
   description:
-    'Clinical outcomes, surgeon experience, and the evidence base behind the A1 Stereotactic Frame — the world’s first bilateral trajectory stereotactic system.',
+    'Clinical outcomes, surgeon experience, and evidence behind the NeuroTech A1 Stereotactic Frame — the world’s first bilateral trajectory stereotactic system.',
+  alternates: { canonical: '/medical-devices/clinical-evidence' },
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -325,7 +335,7 @@ function CtaSection() {
         <Reveal delay={80}>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Button
-              render={<a href="/medical-devices/contact" />}
+              render={<a href="/contact" />}
               nativeButton={false}
               variant="secondary"
               className="h-auto w-full rounded-sm bg-primary px-6 py-3 text-sm font-medium text-white hover:bg-primary/90 sm:w-auto"
@@ -333,7 +343,7 @@ function CtaSection() {
               Speak to our team
             </Button>
             <Button
-              render={<a href="/medical-devices/products" />}
+              render={<a href="/medical-devices#products" />}
               nativeButton={false}
               variant="outline"
               className="group h-auto w-full gap-1.5 rounded-sm border-border bg-transparent px-6 py-3 text-sm font-medium text-surface-dark hover:bg-white hover:text-primary sm:w-auto"
@@ -362,6 +372,7 @@ export default function ClinicalEvidencePage() {
         <OutcomeAreas />
         <StudiesSection />
         <Testimonials />
+        <Faq items={faqItems} />
         <CtaSection />
       </main>
     </>

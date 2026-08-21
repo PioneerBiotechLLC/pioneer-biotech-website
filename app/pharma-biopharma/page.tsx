@@ -1,5 +1,21 @@
+import type { Metadata } from 'next'
 import { AccordionGroup, AccordionSection } from '@/components/accordion-section'
 import { ClosingCta, Container, Eyebrow, PageHero, SiteShell, TrustStrip } from '@/components/site-shell'
+import { Faq } from '@/components/faq'
+
+const faqItems = [
+  { question: 'What certifications does your supply chain carry?', answer: "Our pharmaceutical supply chain is built around GMP, ISO, USP, BP, and EP compliance, covering raw materials, lab equipment, and turnkey facility infrastructure." },
+  { question: 'Do you supply both raw materials and turnkey facility infrastructure?', answer: "Yes — from APIs and excipients to clean rooms, HVAC, and full turnkey manufacturing facilities. Whatever stage your line is at, we can source or build for it." },
+  { question: 'Can you source custom or specialty excipients and APIs?', answer: 'Our portfolio extends well beyond what\'s listed on this page — tell us what your formulation calls for and we will source it.' },
+  { question: 'What is the typical lead time for orders?', answer: 'Lead times vary by product and order volume. Contact a specialist with your specifications and timeline and we\'ll give you an accurate estimate.' },
+  { question: 'Do you work with distributors as well as manufacturers?', answer: 'Yes — we partner directly with manufacturers and support distributors across our network of trusted partners like BEA Technologies and Tisla.' },
+]
+
+export const metadata: Metadata = {
+  title: 'Pharma Solutions: Raw Materials & Lab Equipment',
+  description: 'Microbiology, lab equipment, and pharmaceutical raw materials for manufacturers worldwide — GMP, ISO, USP, BP & EP certified supply chain.',
+  alternates: { canonical: '/pharma-biopharma' },
+}
 
 const downstream = [
   ['Tangential Flow Filtration (TFF) System', ['Gentle, low-shear separation', 'Concentrates and exchanges buffer', 'Less fouling, less clogging', 'Scalable, single or multi-use'], '/images/pharma/tff-system.webp'],
@@ -67,7 +83,7 @@ function SpecCard({ name, bullets, image, fit = 'cover' }: { name: string; bulle
 }
 
 export default function PharmaPage() {
-  return <SiteShell><main><PageHero className="hero-type-match" eyebrow="PHARMACEUTICAL SOLUTIONS" title={<>Everything Your<br /> <span className="accent">Pharma Line Needs.</span></>} description="From active pharmaceutical ingredients to turnkey cleanroom infrastructure, Pioneer Biotech supplies the raw materials, equipment, and engineered facilities pharmaceutical manufacturers depend on." image="/images/pharma-hero.jpeg" />
+  return <SiteShell><main className="pharma-page"><PageHero className="hero-type-match" eyebrow="PHARMA SOLUTIONS" title={<>Everything Your<br /> <span className="accent">Pharma Line Needs.</span></>} description="From active pharmaceutical ingredients to turnkey cleanroom infrastructure, Pioneer Biotech supplies the raw materials, equipment, and engineered facilities pharmaceutical manufacturers depend on." image="/images/pharma-hero.jpeg" />
 
     <AccordionGroup defaultValue={[]}>
       <AccordionSection value="upstream-downstream" header={<><Eyebrow>01 — UPSTREAM & DOWNSTREAM</Eyebrow><h2>Process systems for every stage of production.</h2></>}>
@@ -124,5 +140,7 @@ export default function PharmaPage() {
     </AccordionGroup>
 
     <section id="trusted-partners" className="section section-tan"><Container><Eyebrow>TRUSTED PARTNERS</Eyebrow><h2>Specialists behind every supply chain.</h2><div className="card-grid three">{partners.map(([name, detail, logo, url]) => <a className="partner-card" href={url} target="_blank" rel="noreferrer" key={name}><div className="partner-logo"><img src={logo} alt={name} loading="lazy" /></div><h3>{name}</h3>{detail && <p>{detail}</p>}</a>)}</div></Container></section>
-    <TrustStrip /><ClosingCta title="Source With Confidence" description="Tell us what your line needs — raw materials, lab equipment, or turnkey facility infrastructure — and a specialist will get back to you with a quote." buttons={['Contact Us', 'Contact a Specialist']} links={['/contact']} /></main></SiteShell>
+    <TrustStrip />
+    <Faq items={faqItems} />
+    <ClosingCta title="Source With Confidence" description="Tell us what your line needs — raw materials, lab equipment, or turnkey facility infrastructure — and a specialist will get back to you with a quote." buttons={['Contact Us', 'Contact a Specialist']} links={['/contact']} /></main></SiteShell>
 }

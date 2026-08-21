@@ -40,6 +40,7 @@ export function Software() {
           <img
             src={asset('/images/software-planning.jpg')}
             alt="NeuroTech A1 Surgical Planning software interface"
+            loading="lazy"
             className="w-full rounded-2xl border border-border object-cover"
           />
         </Reveal>

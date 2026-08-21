@@ -114,10 +114,17 @@ export function Hero() {
             muted
             loop
             playsInline
+            webkit-playsinline="true"
+            disableRemotePlayback
             preload="auto"
             poster={asset('/images/hero-poster.jpg')}
             className="video-breathe size-full object-cover"
           >
+            {/* Smaller 540p/1.6MB source for narrow viewports — the video renders at a
+                fraction of its intrinsic size on phones, so there's no benefit to
+                shipping the full 1080p/6.2MB file there. Sources are evaluated in
+                order; the browser picks the first one whose media query matches. */}
+            <source media="(max-width: 768px)" src={asset('/videos/hero-brain-mobile.mp4')} type="video/mp4" />
             <source src={asset('/videos/hero-brain.mp4')} type="video/mp4" />
           </video>
         </div>
@@ -187,7 +194,7 @@ export function Hero() {
           <Reveal delay={240}>
             <div className="mt-10 flex flex-col items-center justify-center gap-5 sm:flex-row sm:gap-6">
               <Button
-                render={<a href="/medical-devices/contact" />}
+                render={<a href="/contact" />}
                 nativeButton={false}
                 variant="secondary"
                 className="h-auto w-full rounded-sm border border-white/40 bg-white/15 px-6 py-3 text-sm font-medium text-white shadow-lg shadow-black/20 backdrop-blur-md transition-colors hover:border-white hover:bg-white hover:text-surface-dark sm:w-auto"
@@ -195,7 +202,7 @@ export function Hero() {
                 Speak To Our Team
               </Button>
               <a
-                href="/medical-devices/products"
+                href="#products"
                 className="group inline-flex items-center gap-1.5 text-sm font-medium text-white/80 transition-colors hover:text-white"
               >
                 Learn More

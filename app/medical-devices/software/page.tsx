@@ -1,11 +1,21 @@
 import type { Metadata } from 'next'
 import { Reveal } from '@/components/medical-devices/reveal'
+import { Faq } from '@/components/medical-devices/sections/faq'
 
 export const metadata: Metadata = {
-  title: 'NeuroTech A1 Surgical Planning Software',
+  title: 'NeuroTech A1 Surgical Planning Software | Pioneer Biotech',
   description:
-    'NeuroTech A1 Surgical Planning — CT/MRI fusion built to establish precise stereotactic reference before the frame ever touches the patient.',
+    'NeuroTech A1 Surgical Planning fuses CT/MRI imaging to establish precise stereotactic reference before the NeuroTech A1 Stereotactic Frame ever touches the patient.',
+  alternates: { canonical: '/medical-devices/software' },
 }
+
+const faqItems = [
+  { question: 'What does NeuroTech A1 Surgical Planning software do?', answer: 'It fuses CT and MRI imaging to establish a precise stereotactic reference before the A1 Frame ever touches the patient, supporting the planning behind each bilateral trajectory.' },
+  { question: 'Does it require special hardware?', answer: 'Contact our team for current system requirements — we\'ll confirm compatibility with your existing imaging and planning workstations.' },
+  { question: 'Is training provided?', answer: 'Yes — training on the planning software is included as part of clinical evaluation and onboarding with the A1 Frame.' },
+  { question: 'Does it integrate with existing hospital imaging systems?', answer: 'It\'s built around standard CT/MRI fusion workflows. Speak with our team about your specific imaging setup.' },
+  { question: 'Is the software included with the A1 Frame or licensed separately?', answer: 'Contact our team for current licensing details as part of your clinical evaluation.' },
+]
 
 // Placeholder page — full software content to be added separately.
 export default function SoftwarePage() {
@@ -40,6 +50,8 @@ export default function SoftwarePage() {
             </Reveal>
           </div>
         </section>
+
+        <Faq items={faqItems} />
       </main>
     </>
   )

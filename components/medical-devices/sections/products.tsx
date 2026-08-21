@@ -1,5 +1,4 @@
 import { Reveal } from '@/components/medical-devices/reveal'
-import { Button } from '@/components/ui/button'
 import {
   ArrowRight,
   Activity,
@@ -93,7 +92,7 @@ const FLAGSHIP_SPECS = ['5-component system', 'Bilateral trajectories', 'Sub-mil
 
 export function Products() {
   return (
-    <section className="bg-white py-16 md:py-24">
+    <section id="products" className="bg-white py-16 md:py-24">
       <div className="mx-auto max-w-6xl px-5 md:px-8">
         <Reveal>
           <p className="text-xs font-medium uppercase tracking-[0.1em] text-primary">
@@ -107,7 +106,8 @@ export function Products() {
         {/* A1 Frame flagship */}
         <Reveal delay={80} className="mt-10">
           <a
-            href="/medical-devices/products"
+            id="a1-frame"
+            href="/contact"
             className="group relative flex flex-col overflow-hidden rounded-2xl bg-surface-dark transition-all duration-300 hover:shadow-2xl hover:shadow-black/50 sm:flex-row sm:items-stretch"
           >
             {/* Ambient gold glow */}
@@ -130,6 +130,7 @@ export function Products() {
               <img
                 src={asset('/images/A1_image.jpg')}
                 alt="A1 Frame"
+                loading="lazy"
                 className="absolute inset-0 size-full object-contain"
               />
             </div>
@@ -178,7 +179,7 @@ export function Products() {
           {VARIANTS.map((v, i) => (
             <Reveal key={v.slug} delay={160 + i * 60}>
               <a
-                href={`/medical-devices/products#${v.slug}`}
+                href="/contact"
                 className="group flex h-full flex-col rounded-xl border border-border bg-white p-6 transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-lg hover:shadow-black/5"
               >
                 <div className="flex items-start justify-between">
@@ -197,23 +198,11 @@ export function Products() {
                   {v.useCase}
                 </p>
                 <span className="mt-4 flex items-center gap-1 text-xs font-medium text-primary/60 transition-colors duration-200 group-hover:text-primary">
-                  Learn more <ArrowRight className="size-3 transition-transform duration-200 group-hover:translate-x-0.5" />
+                  Ask about this configuration <ArrowRight className="size-3 transition-transform duration-200 group-hover:translate-x-0.5" />
                 </span>
               </a>
             </Reveal>
           ))}
-        </div>
-
-        <div className="mt-8 flex justify-center">
-          <Button
-            render={<a href="/medical-devices/products" />}
-            nativeButton={false}
-            variant="link"
-            className="h-auto gap-1.5 p-0 text-sm font-medium text-primary no-underline hover:text-surface-dark hover:no-underline"
-          >
-            View All Indications
-            <ArrowRight className="size-3.5" />
-          </Button>
         </div>
       </div>
     </section>

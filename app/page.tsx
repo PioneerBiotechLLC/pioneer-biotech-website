@@ -1,9 +1,25 @@
 import Link from 'next/link'
+import type { Metadata } from 'next'
 import { BadgeCheck, BookOpenCheck, Boxes, Clock, Crosshair, Factory, FlaskConical, Globe, Handshake, ShieldCheck } from 'lucide-react'
 import { Arrow, ButtonLink, ClosingCta, Container, Eyebrow, MEDICAL_DEVICES_URL, PartnerBar, SectionDivider, SiteShell, TrustStrip } from '@/components/site-shell'
+import { Faq } from '@/components/faq'
+
+const faqItems = [
+  { question: 'What does Pioneer Biotech do?', answer: 'We operate across three divisions: Pharma Solutions (pharmaceutical raw materials, lab equipment, and turnkey facility infrastructure), Medical Devices (home of the A1 Stereotactic Frame), and our upcoming Innovation Hub for pharmaceutical R&D.' },
+  { question: 'Which countries do you serve?', answer: "We supply and support partners across five continents, with offices in Egypt and Abu Dhabi. Our products and equipment are already used by manufacturers, hospitals, and distributors in 50+ countries." },
+  { question: 'How do I request a quote or start a partnership?', answer: 'Use our contact form, or reach out directly by email or phone — tell us which division you\'re interested in and a specialist will follow up.' },
+  { question: 'Are your products certified and regulatory compliant?', answer: 'Our pharma supply chain is built around GMP, ISO, USP, BP, and EP compliance. The A1 Stereotactic Frame is patented and available for institutional clinical evaluation globally.' },
+  { question: 'How can I learn more about the A1 Stereotactic Frame?', answer: "Visit our Medical Devices division to explore the product line, clinical evidence, and surgical planning software, or contact us to request a clinical evaluation kit." },
+]
+
+export const metadata: Metadata = {
+  title: 'Pioneer Biotech | Pharma Manufacturing & Medical Devices',
+  description: 'Pioneer Biotech delivers GMP-certified pharmaceutical raw materials and lab equipment, and manufactures the NeuroTech A1 Stereotactic Frame for neurosurgery.',
+  alternates: { canonical: '/' },
+}
 
 const divisions = [
-  ['Pharmaceutical Solutions', 'Microbiology, lab equipment, and pharmaceutical raw materials for manufacturers worldwide.', '/pharma-biopharma', false, '/images/division-pharma-biopharma.jpeg'],
+  ['Pharma Solutions', 'Microbiology, lab equipment, and pharmaceutical raw materials for manufacturers worldwide.', '/pharma-biopharma', false, '/images/division-pharma-biopharma.jpeg'],
   ['Medical Devices', "Home of the A1 Stereotactic Frame — the world's first bilateral trajectory neurosurgical frame.", MEDICAL_DEVICES_URL, false, '/images/division-medical-devices.jpeg'],
   ['Innovation Hub', 'Technology-driven R&D advancing pharmaceutical formulation, manufacturing, and clinical solutions. Coming soon.', '/innovation-center', false, '/images/division-innovation-center.jpeg'],
 ]
@@ -31,8 +47,8 @@ export default function Home() {
         })}
       </div>
     </section>
-    <section className="section" id="glance"><Container><Eyebrow>PIONEER BIOTECH AT A GLANCE</Eyebrow><div className="stats"><div><strong>15+</strong><span>Years in Operation</span></div><div><strong>50+</strong><span>Countries Served</span></div><div><strong>500+</strong><span>Partners Worldwide</span></div><div className="flex flex-col items-start gap-3"><div className="flex w-full flex-row flex-nowrap items-center justify-between"><ShieldCheck className="size-5 shrink-0 text-primary" aria-hidden="true" /><BadgeCheck className="size-5 shrink-0 text-primary" aria-hidden="true" /><FlaskConical className="size-5 shrink-0 text-primary" aria-hidden="true" /><BookOpenCheck className="size-5 shrink-0 text-primary" aria-hidden="true" /><Globe className="size-5 shrink-0 text-primary" aria-hidden="true" /></div><span>GMP · ISO · USP · BP · EP Certified</span></div></div></Container></section>
-    <section className="feature"><img src="/images/pharma-hero.jpeg" alt="" aria-hidden="true" /><Container><Eyebrow light>PHARMACEUTICAL SOLUTIONS</Eyebrow><p className="badge">GMP, ISO, USP, BP &amp; EP Certified Supply Chain</p><div className="feature-layout"><div><h2>Everything Your<br />{' '}<span className="accent">Pharma Line Needs.</span></h2><ButtonLink href="/pharma-biopharma">Explore Pharmaceutical Solutions <Arrow /></ButtonLink></div><div className="feature-cards"><div><h4>Product Categories</h4></div><div><h4>APIs Sourced</h4></div><div><h4>Excipients Available</h4></div></div></div></Container></section>
+    <section className="section" id="glance"><Container><Eyebrow>PIONEER BIOTECH AT A GLANCE</Eyebrow><div className="stats"><div><strong>8+</strong><span>Years in Operation</span></div><div><strong>50+</strong><span>Countries Served</span></div><div><strong>500+</strong><span>Partners Worldwide</span></div><div className="flex flex-col items-start gap-3"><div className="flex w-full flex-row flex-nowrap items-center justify-between"><ShieldCheck className="size-5 shrink-0 text-primary" aria-hidden="true" /><BadgeCheck className="size-5 shrink-0 text-primary" aria-hidden="true" /><FlaskConical className="size-5 shrink-0 text-primary" aria-hidden="true" /><BookOpenCheck className="size-5 shrink-0 text-primary" aria-hidden="true" /><Globe className="size-5 shrink-0 text-primary" aria-hidden="true" /></div><span>GMP · ISO · USP · BP · EP Certified</span></div></div></Container></section>
+    <section className="feature"><img src="/images/pharma-hero.jpeg" alt="" aria-hidden="true" /><Container><Eyebrow light>PHARMA SOLUTIONS</Eyebrow><p className="badge">GMP, ISO, USP, BP &amp; EP Certified Supply Chain</p><div className="feature-layout"><div><h2>Everything Your<br />{' '}<span className="accent">Pharma Line Needs.</span></h2><ButtonLink href="/pharma-biopharma">Explore Pharma Solutions <Arrow /></ButtonLink></div><div className="feature-cards"><div><h4>Product Categories</h4></div><div><h4>APIs Sourced</h4></div><div><h4>Excipients Available</h4></div></div></div></Container></section>
 
     <SectionDivider>From Raw Materials to the Operating Room.</SectionDivider>
 
@@ -42,6 +58,7 @@ export default function Home() {
 
     <section className="feature"><img src="/images/division-innovation-center.jpeg" alt="" aria-hidden="true" /><Container><Eyebrow light>INNOVATION HUB</Eyebrow><p className="badge">Coming Soon</p><div className="feature-layout"><div><h2>Engineering What&apos;s<br />{' '}<span className="accent">Next in Pharma.</span></h2><ButtonLink href="/innovation-center">Explore Innovation Hub <Arrow /></ButtonLink></div><div className="feature-stats compact"><div><FlaskConical className="stat-icon" aria-hidden="true" /><div><strong>R&amp;D</strong><span>Formulation &amp; process science</span></div></div><div><Factory className="stat-icon" aria-hidden="true" /><div><strong>Manufacturing</strong><span>Advanced production technology</span></div></div><div><Handshake className="stat-icon" aria-hidden="true" /><div><strong>Partnerships</strong><span>Research &amp; academic institutions</span></div></div></div></div></Container></section>
 
+    <Faq items={faqItems} />
     <ClosingCta title="Partner With Pioneer Biotech" description="Whether you're sourcing pharmaceutical materials, adopting next-generation surgical technology, or exploring what's next in pharma innovation — we're ready to help." buttons={['Contact Us', 'Explore Our Divisions']} links={['/contact', '#divisions']} />
     <TrustStrip />
   </main></SiteShell>

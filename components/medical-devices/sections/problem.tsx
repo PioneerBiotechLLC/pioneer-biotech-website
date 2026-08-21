@@ -128,14 +128,14 @@ export function Problem() {
               >
                 <div className="flex items-stretch">
                   <div className="relative w-24 shrink-0">
-                    <img src={row.oldImage} alt={row.oldText} className="absolute inset-0 size-full object-cover" />
+                    <img src={row.oldImage} alt={row.oldText} loading="lazy" className="absolute inset-0 size-full object-cover" />
                   </div>
                   <div className="flex flex-1 flex-col">
                     <div className="flex items-center gap-3 p-4">
                       <p className="text-sm text-muted-foreground">{row.oldText}</p>
                     </div>
                     <div className="flex items-center gap-3 border-t border-border bg-primary/5 p-4">
-                      <img src={row.newImage} alt={row.newText} className="size-8 shrink-0 rounded object-cover" />
+                      <img src={row.newImage} alt={row.newText} loading="lazy" className="size-8 shrink-0 rounded object-cover" />
                       <p className="text-sm font-medium text-surface-dark">{row.newText}</p>
                     </div>
                   </div>
@@ -180,7 +180,7 @@ export function Problem() {
                       regardless of how many lines the label wraps to. */}
                   <div className="flex h-[92px] items-center gap-3 p-5 pr-10">
                     <div className="size-12 shrink-0 overflow-hidden rounded-lg">
-                      <img src={row.oldImage} alt={row.oldText} className="size-full object-cover" />
+                      <img src={row.oldImage} alt={row.oldText} loading="lazy" className="size-full object-cover" />
                     </div>
                     <div className="min-w-0">
                       <p className="text-xs font-medium uppercase tracking-[0.1em] text-muted-foreground">
@@ -200,7 +200,7 @@ export function Problem() {
                   >
                     <div className="flex items-center gap-3 border-t border-border bg-primary/5 px-5 py-4">
                       <div className="size-12 shrink-0 overflow-hidden rounded-lg">
-                        <img src={row.newImage} alt={row.newText} className="size-full object-cover" />
+                        <img src={row.newImage} alt={row.newText} loading="lazy" className="size-full object-cover" />
                       </div>
                       <div className="min-w-0">
                         <p className="text-xs font-medium uppercase tracking-[0.1em] text-primary">

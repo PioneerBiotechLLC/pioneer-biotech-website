@@ -82,6 +82,7 @@ export function TrustBar() {
                     <img
                       src={logo.src}
                       alt={logo.alt}
+                      loading="lazy"
                       className="h-7 max-w-[110px] object-contain opacity-50 grayscale transition-all duration-300 hover:opacity-80 hover:grayscale-0 sm:h-8"
                     />
                   </button>

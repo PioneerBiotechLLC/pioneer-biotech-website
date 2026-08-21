@@ -97,7 +97,7 @@ const FEATURES: Feature[] = [
 
 function FeatureImage({ src, alt, className }: { src: string | null; alt: string; className?: string }) {
   if (src) {
-    return <img src={src} alt={alt} className={cn('object-cover', className)} />
+    return <img src={src} alt={alt} loading="lazy" className={cn('object-cover', className)} />
   }
   return (
     <div

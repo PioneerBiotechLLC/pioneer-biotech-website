@@ -16,9 +16,10 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'A1 Frame by Abdelwahab — Bilateral Trajectory Stereotactic Frame',
+  title: 'NeuroTech A1 Stereotactic Frame',
   description:
-    "The Abdelwahab Stereotactic Frame (A1 Frame) is the world's only stereotactic frame with bilateral trajectory — cutting brain surgery time in half with just 5 components and no skull pins.",
+    "The NeuroTech A1 Stereotactic Frame, designed and manufactured by Pioneer Biotech, is the world's first bilateral trajectory stereotactic frame — cutting brain surgery time in half with just 5 components and no skull pins.",
+  alternates: { canonical: '/medical-devices' },
 }
 
 export const viewport: Viewport = {
