@@ -44,7 +44,7 @@ function PageHero() {
           <h1 className="text-balance text-4xl font-semibold leading-tight text-white md:text-6xl">
             Precision, proven in the operating room.
           </h1>
-          <p className="mx-auto mt-6 max-w-xl text-pretty text-base leading-relaxed text-white/70 md:text-lg">
+          <p className="mx-auto mt-6 max-w-xl text-pretty text-center text-base leading-relaxed text-white/70 md:text-lg">
             The A1 Stereotactic Frame reaches both cerebral hemispheres in a single session — with
             sub-millimetre accuracy, no skull pins, and a patient experience that is measurably
             better from setup to recovery.
@@ -149,7 +149,7 @@ function OutcomeAreas() {
           <h2 className="text-balance text-3xl font-medium leading-tight text-surface-dark md:text-4xl">
             Where the evidence concentrates.
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-pretty text-base leading-relaxed text-muted-foreground">
+          <p className="mx-auto mt-4 max-w-xl text-pretty text-center text-base leading-relaxed text-muted-foreground">
             Across clinical use, the A1 Frame’s advantages cluster in three areas that matter most to
             surgical teams and patients alike.
           </p>
