@@ -431,7 +431,6 @@ function CtaSection() {
           </h2>
           <p className="mt-4 text-[14px] leading-relaxed text-white/55">
             Speak with our team about the NeuroTech A1 Stereotactic Frame or{' '}
-            {/* TODO(placeholder): swap for the real Pioneer Biotech production domain once live */}
             <a
               href="https://www.pbio.tech"
               target="_blank"

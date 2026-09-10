@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next'
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = 'https://pioneerbiotech.com'
+  const baseUrl = 'https://www.pbio.tech'
   return {
     rules: { userAgent: '*', allow: '/' },
     sitemap: `${baseUrl}/sitemap.xml`,

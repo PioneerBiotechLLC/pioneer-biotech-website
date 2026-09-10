@@ -8,7 +8,10 @@ const manrope = Manrope({ subsets: ['latin'], variable: '--font-manrope' })
 const fraunces = Fraunces({ subsets: ['latin'], weight: ['600', '700'], variable: '--font-fraunces' })
 const plexMono = IBM_Plex_Mono({ subsets: ['latin'], weight: ['500'], variable: '--font-plex-mono' })
 
-const SITE_URL = 'https://pioneerbiotech.com'
+// pbio.tech is the registered, deployed domain. pioneerbiotech.com belongs to an
+// unrelated third party — pointing metadataBase there sent every canonical URL and
+// OG image to someone else's server.
+const SITE_URL = 'https://www.pbio.tech'
 const SITE_TITLE = 'Pioneer Biotech | Pharma Manufacturing & Medical Devices'
 const SITE_DESCRIPTION = 'Pioneer Biotech supplies GMP-certified pharmaceutical raw materials and lab equipment, and manufactures the NeuroTech A1 Stereotactic Frame for neurosurgery.'
 

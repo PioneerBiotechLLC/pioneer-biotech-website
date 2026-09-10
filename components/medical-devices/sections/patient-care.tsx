@@ -59,15 +59,6 @@ export function PatientCare() {
           </Reveal>
 
           <Reveal delay={200}>
-            {/* TODO: testimonial wording drafted from the client's notes — needs their sign-off */}
-            <blockquote className="mt-8 border-l-2 border-secondary bg-white/60 py-4 pl-5 pr-4 text-sm italic leading-relaxed text-foreground">
-              I expected what everyone expects from brain surgery — visible scars and a long
-              recovery. The frame surprised me: no scars I can see, and I was back on my feet
-              far sooner than I imagined.
-            </blockquote>
-          </Reveal>
-
-          <Reveal delay={260}>
             <Button
               render={<a href="/contact" />}
               nativeButton={false}

@@ -8,6 +8,19 @@ const nextConfig = {
     // resize/format negotiation immediately as it lands.
   },
   async headers() {
+    // Applied to every route. No Content-Security-Policy here on purpose: a useful
+    // one needs per-request nonces for Next's inline hydration scripts, which means
+    // middleware, and a CSP with `unsafe-inline` bought nothing. Tracked as follow-up.
+    const securityHeaders = [
+      // Vercel already redirects http→https; HSTS closes the downgrade window on
+      // the very first request, before that redirect is ever seen.
+      { key: 'Strict-Transport-Security', value: 'max-age=63072000; includeSubDomains; preload' },
+      { key: 'X-Content-Type-Options', value: 'nosniff' },
+      { key: 'X-Frame-Options', value: 'DENY' },
+      { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+      { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
+    ]
+
     // Static assets under public/ aren't filename-hashed, so we deliberately avoid
     // `immutable` + a year-long max-age — swapping a file at the same path (as we
     // did this session) would otherwise leave returning visitors stuck on the old
@@ -15,6 +28,7 @@ const nextConfig = {
     // already sends ETags, so a stale hit is a cheap 304) is a safer default.
     const cacheControl = { key: 'Cache-Control', value: 'public, max-age=86400, must-revalidate' }
     return [
+      { source: '/:path*', headers: securityHeaders },
       { source: '/images/:path*', headers: [cacheControl] },
       { source: '/logos/:path*', headers: [cacheControl] },
       { source: '/videos/:path*', headers: [cacheControl] },

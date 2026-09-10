@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next'
 
-const baseUrl = 'https://pioneerbiotech.com'
+const baseUrl = 'https://www.pbio.tech'
 
 const routes = [
   '',

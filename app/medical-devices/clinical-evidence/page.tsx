@@ -177,35 +177,15 @@ function OutcomeAreas() {
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Section 5 — Evidence base / studies
-// TODO: replace these placeholder entries with real, verifiable studies,
-// evaluations, or case reports. Do not present unverified data as clinical fact.
+// Add entries only for studies cleared for publication — never present unverified
+// data as clinical fact. The section renders nothing while this list is empty.
 // ─────────────────────────────────────────────────────────────────────────────
 
-const STUDIES = [
-  {
-    tag: 'Internal evaluation',
-    title: 'Bilateral procedure time in functional neurosurgery',
-    summary:
-      'Placeholder — describe the evaluation setting, number of cases, and the operative-time finding here once confirmed.',
-    meta: 'Institution · Year',
-  },
-  {
-    tag: 'Case series',
-    title: 'Targeting accuracy with a physically reachable reference point',
-    summary:
-      'Placeholder — summarise the accuracy methodology and mean deviation once the data is available.',
-    meta: 'Institution · Year',
-  },
-  {
-    tag: 'Patient outcomes',
-    title: 'Cosmetic and recovery outcomes without skull pins',
-    summary:
-      'Placeholder — describe patient-reported outcomes on scarring, comfort, and recovery once collected.',
-    meta: 'Institution · Year',
-  },
-]
+const STUDIES: { tag: string; title: string; summary: string; meta: string }[] = []
 
 function StudiesSection() {
+  if (STUDIES.length === 0) return null
+
   return (
     <section className="relative overflow-hidden bg-surface-alt py-16 md:py-24">
       <div
@@ -258,25 +238,15 @@ function StudiesSection() {
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Section 6 — Surgeon testimonials
-// TODO: confirm every quote and attribution with the named surgeon before launch.
+// Add a quote only once its wording and attribution are confirmed in writing with
+// the named surgeon. The section renders nothing while this list is empty.
 // ─────────────────────────────────────────────────────────────────────────────
 
-const TESTIMONIALS = [
-  {
-    quote:
-      'Being able to treat both sides in one session changed how I plan bilateral cases entirely.',
-    name: 'Placeholder — Surgeon name',
-    role: 'Placeholder — Role, Institution',
-  },
-  {
-    quote:
-      'The absence of skull pins made the biggest difference for my awake patients — far less anxiety going in.',
-    name: 'Placeholder — Surgeon name',
-    role: 'Placeholder — Role, Institution',
-  },
-]
+const TESTIMONIALS: { quote: string; name: string; role: string }[] = []
 
 function Testimonials() {
+  if (TESTIMONIALS.length === 0) return null
+
   return (
     <section className="relative overflow-hidden bg-surface-dark py-16 md:py-24">
       <div

@@ -34,13 +34,6 @@ const LOGOS: Logo[] = [
       'A leading research and academic institution in Egypt, Mansoura University has contributed to the clinical validation of the A1 Stereotactic Frame through its neurosurgery department.',
   },
   {
-    src: asset('/logos/hospital-placeholder.png'),
-    alt: 'Partner hospital',
-    name: 'Partner Hospital',
-    description:
-      'A trusted institutional partner contributing to the global adoption of the A1 Frame across surgical centres.',
-  },
-  {
     src: asset('/logos/salam-hospital.png'),
     alt: 'Salam Hospital',
     name: 'Salam Hospital',

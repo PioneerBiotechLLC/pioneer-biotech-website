@@ -44,7 +44,6 @@ const FEATURES: Feature[] = [
     badgeTone: 'accent',
     image: asset('/features/no-skull-pins.jpeg'),
   },
-  // TODO: add a real image for this feature (currently renders the placeholder)
   {
     title: 'Least learning curve',
     description: 'Every reference point is physical and touchable — nothing has to be imagined, so mastery comes in days, not months.',
@@ -54,7 +53,6 @@ const FEATURES: Feature[] = [
     badgeTone: 'accent',
     image: asset('/features/least-learning-curve.jpeg'),
   },
-  // TODO: add a real image for this feature (currently renders the placeholder)
   {
     title: 'Simplest geometry',
     description: 'A physically reachable reference point defines your starting position — no virtual coordinates to reconstruct.',
