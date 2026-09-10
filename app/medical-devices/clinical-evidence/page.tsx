@@ -60,7 +60,7 @@ function PageHero() {
 // ─────────────────────────────────────────────────────────────────────────────
 
 const OUTCOMES = [
-  { value: '<1mm', label: 'Mean trajectory accuracy' },
+  { value: '<0.2mm', label: 'Mean trajectory accuracy' },
   { value: '50%', label: 'Reduction in average operative time' },
   { value: '2', label: 'Hemispheres accessed at the same time' },
   { value: 'Zero', label: 'Visible pin scars' },
@@ -102,13 +102,13 @@ function FeaturedQuote() {
         </Reveal>
         <Reveal delay={80}>
           <blockquote className="mt-6 font-serif text-2xl italic leading-[1.45] text-white md:text-3xl lg:text-4xl">
-            “What once required two procedures now takes one — with no skull pins, faster setup, and
-            a patient experience that is meaningfully better from start to finish.”
+            “From concept drawing to operating room faster than any comparable system I’ve seen,
+            with precision that held up to exact specifications from day one.”
           </blockquote>
         </Reveal>
         <Reveal delay={160}>
           <p className="mt-8 text-sm text-border">
-            Dr. Mohamed Elsaeed, Director of Functional Neurosurgery
+            Dr. Tackas, Functional Neurosurgery
           </p>
         </Reveal>
       </div>

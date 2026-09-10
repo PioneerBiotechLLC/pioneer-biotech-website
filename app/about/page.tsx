@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
 import { FlaskConical, Globe, Handshake, Lightbulb, Scale, ShieldCheck, type LucideIcon } from 'lucide-react'
-import { Arrow, ButtonLink, ClosingCta, Container, Eyebrow, IconMark, MEDICAL_DEVICES_URL, PageHero, SiteShell } from '@/components/site-shell'
+import { Arrow, ClosingCta, Container, Eyebrow, IconMark, MEDICAL_DEVICES_URL, PageHero, SiteShell } from '@/components/site-shell'
 import { Faq } from '@/components/faq'
 
 const faqItems = [

@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Clock, Boxes, ShieldCheck, Crosshair, ArrowRight, Play, Pause } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import { asset } from '@/lib/utils'
+import { prefersReducedMotion } from '@/lib/motion'
 
 type Stat = {
   value: string
@@ -30,7 +31,7 @@ function StatCounter({ target, suffix = '', delay = 0 }: { target: number; suffi
   const [display, setDisplay] = useState(target)
 
   useEffect(() => {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    if (prefersReducedMotion()) return
     let raf = 0
     const duration = 1200
     let start: number | null = null
@@ -68,7 +69,7 @@ export function Hero() {
     if (!video) return
     // Respect the user's OS-level motion preference: hold on the poster frame
     // instead of autoplaying the loop.
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    if (prefersReducedMotion()) {
       video.pause()
       setPaused(true)
       return

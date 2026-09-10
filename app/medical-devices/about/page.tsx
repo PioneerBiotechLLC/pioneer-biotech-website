@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import { ArrowRight } from 'lucide-react'
 import { Reveal } from '@/components/medical-devices/reveal'
 import { Button } from '@/components/ui/button'
 import { Faq } from '@/components/medical-devices/sections/faq'
@@ -378,44 +377,6 @@ function InventorSection() {
 // Section 7 — Pioneer Biotech + A1 Frame connection
 // ─────────────────────────────────────────────────────────────────────────────
 
-
-// ─────────────────────────────────────────────────────────────────────────────
-// Section 7 — Bridge (hidden, kept for reference)
-// ─────────────────────────────────────────────────────────────────────────────
-
-{/* function BridgeSection() {
-  return (
-    <section className="bg-white py-16 md:py-24">
-      <div className="mx-auto max-w-3xl px-5 text-center md:px-8">
-        <Reveal>
-          <h2 className="text-balance text-[clamp(1.75rem,3.5vw,2.25rem)] font-medium leading-tight text-surface-dark">
-            Where Pharmaceutical Expertise Meets Neurosurgical Innovation
-          </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-pretty text-[15px] leading-relaxed text-muted-foreground">
-            Pioneer Biotech's global manufacturing infrastructure and regulatory expertise
-            provide the backbone that brings the A1 Stereotactic Frame from concept to operating
-            room. Our commitment to quality, compliance, and partnership means every frame that
-            reaches a surgical team meets the highest standards of precision and reliability.
-          </p>
-        </Reveal>
-
-        <Reveal delay={80}>
-          <div className="mt-8">
-            <Button
-              render={<a href="/medical-devices/products" />}
-              nativeButton={false}
-              variant="secondary"
-              className="h-auto gap-2 rounded-sm bg-primary px-8 py-3.5 text-sm font-medium text-white hover:bg-primary/90"
-            >
-              Learn More About Our Products
-              <ArrowRight className="size-4" />
-            </Button>
-          </div>
-        </Reveal>
-      </div>
-    </section>
-  )
-} */}
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Section 8 — CTA

@@ -20,7 +20,7 @@ export function Evidence() {
 
         <Reveal delay={80}>
           <blockquote className="mt-8 font-serif text-2xl md:text-3xl lg:text-4xl italic leading-[1.45] text-white">
-            "From concept drawing to operating room faster than any comparable system I've seen, with precision that held up to exact specifications from day one."
+            “From concept drawing to operating room faster than any comparable system I’ve seen, with precision that held up to exact specifications from day one.”
           </blockquote>
         </Reveal>
 

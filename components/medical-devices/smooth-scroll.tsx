@@ -1,7 +1,8 @@
 'use client'
 
 import { ReactLenis, useLenis } from 'lenis/react'
-import { useEffect, useState, type ReactNode } from 'react'
+import { useEffect, type ReactNode } from 'react'
+import { usePrefersReducedMotion } from '@/lib/motion'
 
 // Lenis's own anchor-click handling only covers same-page hash links (it checks
 // pathname === pathname), so a fresh load at a URL that already has a hash —
@@ -21,15 +22,7 @@ function InitialHashScrollFix() {
 }
 
 export function SmoothScroll({ children }: { children: ReactNode }) {
-  const [reduceMotion, setReduceMotion] = useState<boolean | null>(null)
-
-  useEffect(() => {
-    const query = window.matchMedia('(prefers-reduced-motion: reduce)')
-    setReduceMotion(query.matches)
-    const onChange = (e: MediaQueryListEvent) => setReduceMotion(e.matches)
-    query.addEventListener('change', onChange)
-    return () => query.removeEventListener('change', onChange)
-  }, [])
+  const reduceMotion = usePrefersReducedMotion()
 
   if (reduceMotion !== false) return <>{children}</>
 
