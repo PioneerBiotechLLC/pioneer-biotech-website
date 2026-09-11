@@ -12,6 +12,8 @@ const routes = [
   '/medical-devices/about',
   '/medical-devices/clinical-evidence',
   '/medical-devices/software',
+  '/privacy-policy',
+  '/terms-of-service',
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {

@@ -186,7 +186,10 @@ export function Footer() {
       <div><p className="footer-label">Company</p><div className="footer-links"><Link href="/about">About</Link></div></div>
       <div><p className="footer-label">Contact</p><div className="footer-links"><a href="tel:+971503859559">+971 50 385 9559</a><a href="mailto:info@pbio.tech">info@pbio.tech</a></div></div>
     </div>
-    <div className="container footer-bottom"><span>© {new Date().getFullYear()} Pioneer Biotech. All rights reserved.</span><a href="https://www.linkedin.com/company/pioneer-biotech-llc/" target="_blank" rel="noreferrer">LinkedIn</a></div>
+    <div className="container footer-bottom">
+      <div className="footer-legal"><span>© {new Date().getFullYear()} Pioneer Biotech. All rights reserved.</span><Link href="/privacy-policy">Privacy Policy</Link><Link href="/terms-of-service">Terms of Service</Link></div>
+      <a href="https://www.linkedin.com/company/pioneer-biotech-llc/" target="_blank" rel="noreferrer">LinkedIn</a>
+    </div>
   </footer>
 }
 

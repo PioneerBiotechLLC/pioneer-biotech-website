@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, type FormEvent } from 'react'
+import Link from 'next/link'
 import { Mail, Phone } from 'lucide-react'
 import { Container, IconMark, PageHero, SiteShell } from '@/components/site-shell'
 import { Faq } from '@/components/faq'
@@ -147,6 +148,9 @@ export default function ContactPage() {
                   <span>Send me occasional updates from Pioneer Biotech</span>
                 </label>
                 {error && <p role="alert" className="form-error">{error}</p>}
+                <p className="form-privacy-note">
+                  By submitting, you agree to our <Link href="/privacy-policy">Privacy Policy</Link>.
+                </p>
                 <button type="submit" className="button" disabled={sending}>{sending ? 'Sending…' : 'Send Message'}</button>
               </form>
             )}
