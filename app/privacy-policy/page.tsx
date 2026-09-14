@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 }
 
-const EFFECTIVE_DATE = 'September 11, 2026'
+const EFFECTIVE_DATE = 'September 14, 2026'
 
 export default function PrivacyPolicyPage() {
   return <SiteShell><main>
@@ -48,9 +48,9 @@ export default function PrivacyPolicyPage() {
 
           <p><strong>Information collected automatically.</strong> This site uses Vercel Web Analytics to understand
             how the site is used — which pages are visited, how visitors arrived, and general device/browser and
-            country-level location information. This analytics service does not use cookies, does not track you
-            across other websites, and does not build a profile tied to your identity. We only see this data in
-            aggregate.
+            country-level location information — and Vercel Speed Insights to measure how quickly pages load and
+            render. Neither service uses cookies, tracks you across other websites, or builds a profile tied to
+            your identity. We only see this data in aggregate.
           </p>
 
           <h2>Cookies</h2>
@@ -73,7 +73,7 @@ export default function PrivacyPolicyPage() {
           <p>We share information only with service providers who help us run this website and respond to enquiries:</p>
           <ul>
             <li><strong>Resend</strong> — delivers the email generated when you submit our contact form</li>
-            <li><strong>Vercel</strong> — hosts this website and provides the anonymous analytics described above</li>
+            <li><strong>Vercel</strong> — hosts this website and provides the anonymous analytics and performance measurement described above</li>
           </ul>
           <p>
             These providers process data on our behalf and are not permitted to use it for their own purposes. We
