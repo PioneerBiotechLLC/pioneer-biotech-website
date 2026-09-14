@@ -37,4 +37,42 @@ export const metadata: Metadata = {
 }
 export const viewport: Viewport = { colorScheme: 'light', themeColor: '#1A1A1A', userScalable: true }
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) { return <html lang="en" className="bg-background" data-scroll-behavior="smooth"><body className={`${inter.variable} ${manrope.variable} ${fraunces.variable} ${plexMono.variable} antialiased`}>{children}{process.env.NODE_ENV === 'production' && <><Analytics /><SpeedInsights /></>}</body></html> }
+// "Pioneer Biotech" is a contested name — several unrelated companies (a Chinese
+// herbal-extract manufacturer on pioneerbiotech.com, a Maryland biotech, others)
+// currently own the query. This entity graph tells Google explicitly which
+// company this site is, where it operates, and links it to the LinkedIn page,
+// so it can be disambiguated and surfaced as its own Knowledge Panel.
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': `${SITE_URL}/#organization`,
+      name: 'Pioneer Biotech',
+      legalName: 'Pioneer Biotech LLC',
+      url: SITE_URL,
+      logo: `${SITE_URL}/logos/logo.jpeg`,
+      description: SITE_DESCRIPTION,
+      email: 'info@pbio.tech',
+      telephone: '+971503859559',
+      sameAs: ['https://www.linkedin.com/company/pioneer-biotech-llc/'],
+      address: [
+        { '@type': 'PostalAddress', streetAddress: 'FD – First Floor, Incubator Building, Masdar City', addressLocality: 'Abu Dhabi', addressCountry: 'AE' },
+        { '@type': 'PostalAddress', streetAddress: 'Trivium Square, Floor 2, Office 207, 5th Settlement', addressLocality: 'New Cairo', addressCountry: 'EG' },
+      ],
+      contactPoint: { '@type': 'ContactPoint', telephone: '+971503859559', email: 'info@pbio.tech', contactType: 'sales', availableLanguage: ['en', 'ar'] },
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${SITE_URL}/#website`,
+      url: SITE_URL,
+      name: 'Pioneer Biotech',
+      publisher: { '@id': `${SITE_URL}/#organization` },
+    },
+  ],
+}
+
+// `<` escaped so a value could never terminate the script tag early.
+const structuredDataJson = JSON.stringify(structuredData).replace(/</g, '\\u003c')
+
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) { return <html lang="en" className="bg-background" data-scroll-behavior="smooth"><body className={`${inter.variable} ${manrope.variable} ${fraunces.variable} ${plexMono.variable} antialiased`}><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: structuredDataJson }} />{children}{process.env.NODE_ENV === 'production' && <><Analytics /><SpeedInsights /></>}</body></html> }
