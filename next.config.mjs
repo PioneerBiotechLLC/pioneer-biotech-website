@@ -7,6 +7,14 @@ const nextConfig = {
     // (not unoptimized) so each migrated <Image> gets Vercel's on-demand
     // resize/format negotiation immediately as it lands.
   },
+  async redirects() {
+    // The A1 frame is the lead offering, so the site opens on Medical Devices.
+    // Temporary (307) rather than 308: browsers cache permanent redirects
+    // aggressively, which would make restoring a standalone home page painful.
+    // app/page.tsx is kept intact (but unreachable) so reverting is just
+    // deleting this entry and re-adding '' to app/sitemap.ts.
+    return [{ source: '/', destination: '/medical-devices', permanent: false }]
+  },
   async headers() {
     // Applied to every route. No Content-Security-Policy here on purpose: a useful
     // one needs per-request nonces for Next's inline hydration scripts, which means

@@ -3,7 +3,6 @@ import type { MetadataRoute } from 'next'
 const baseUrl = 'https://www.pbio.tech'
 
 const routes = [
-  '',
   '/about',
   '/contact',
   '/pharma-biopharma',
